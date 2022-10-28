@@ -5,6 +5,7 @@ function PlayerDetails(props: any){
         <div>
             <label htmlFor="player1Name">Player {props.playerNumber}: </label>
             <input type="text" id="player1Name" placeholder="Name"/>
+            <input type="color"/>
         </div>
     )
 }
