@@ -1,8 +1,9 @@
 import React from "react"
+import { Instructions } from "./InstructionScreenComponents/Instructions"
 
 function InstructionScreen(){
     return (
-        <div>This is the instructions screen</div>
+        <Instructions/>
     )
 }
 

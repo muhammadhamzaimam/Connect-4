@@ -1,8 +1,9 @@
 import React from "react"
+import { Board} from "./GameScreenComponents/Board"
 
 function GameScreen(){
     return (
-        <div>This is the game screen</div>
+        <Board/>
     )
 }
 
