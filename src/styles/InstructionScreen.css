@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.Instructions{
+    text-align: center;
+    width: 50vw;
+    margin: 20vh auto 0 auto;
+}
+
+p{
+    font-size: 30px;
+}
+
+h1{
+    font-size: 60px;
+    margin-bottom: 5vh;
+}
+
+button{
+    margin: 5vh auto;
+    font-size: 30px;
+    padding: 5px;
+}

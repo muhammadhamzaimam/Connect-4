@@ -38,11 +38,24 @@
 }
 
 .Game-board{
-    margin-top: 15vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 70vh;
+}
+
+.Game-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 5vh 5vw 0 5vw;
+}
+
+.Game-footer{
+    display: flex;
+    width: 70vw;
+    margin: 5vh auto;
+    align-items: center;
+    height: 5vh;
 }

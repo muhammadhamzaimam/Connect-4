@@ -5,14 +5,19 @@ import { GameScreen } from "./Components/GameScreen";
 import { InstructionScreen } from "./Components/InstructionScreen";
 
 function App() {
-  return (
-    <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<HomeScreen/>}/>
-                <Route path="/game" element={<GameScreen/>}/>
-                <Route path="/instructions" element={<InstructionScreen/>}/>
-            </Routes>
-    </BrowserRouter>
+
+    function handlePlayButton(player1Name:string, player2Name:string){
+        console.log(player1Name, player2Name);
+    }
+
+    return (
+      <BrowserRouter>
+          <Routes>
+              <Route index element={<HomeScreen onPlayButtonClick={handlePlayButton}/>}/>
+              <Route path="/game" element={<GameScreen/>}/>
+              <Route path="/instructions" element={<InstructionScreen/>}/>
+          </Routes>
+      </BrowserRouter>
   );
 }
 
