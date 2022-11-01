@@ -20,4 +20,4 @@ function Instructions(){
     )
 }
 
-export { Instructions }
+export default Instructions

@@ -1,10 +1,10 @@
 import React from "react"
 
-interface myProps{
+interface playerInfo{
     playerName: string
 }
 
-function GameHeader(props: myProps){
+function GameHeader(props: playerInfo){
     return(
         <div className="Game-header">
             <h1>CONNECT-4</h1>
@@ -13,4 +13,4 @@ function GameHeader(props: myProps){
     )
 }
 
-export { GameHeader }
+export default GameHeader

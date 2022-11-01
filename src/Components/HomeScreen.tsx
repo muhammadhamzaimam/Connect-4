@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { PlayerDetails } from "./HomeScreenComponents/PlayerDetails"
+import PlayerDetails from "./HomeScreenComponents/PlayerDetails"
 import { Link } from "react-router-dom";
 
 interface homeScreenProps{

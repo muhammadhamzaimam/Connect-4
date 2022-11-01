@@ -1,22 +1,26 @@
 import React from "react"
 import "../../styles/GameScreen.css"
+import { numOfRows } from "../../Constants";
 
-interface myProps{
-    columnNumber: string
+interface columnInfo{
+    columnLetter: string
 }
 
-function Column(props: myProps){
+function Column(props: columnInfo){
+    const columns = [];
+
+    for(let i = 0; i < numOfRows; i++)
+    {
+        columns.push(<div className="Column-element"></div>)
+    }
+
+    columns.push(<div className="Column-button">{props.columnLetter}</div>)
+
     return(
         <div className="Column">
-            <div className="Column-element"></div>
-            <div className="Column-element"></div>
-            <div className="Column-element"></div>
-            <div className="Column-element"></div>
-            <div className="Column-element"></div>
-            <div className="Column-element"></div>
-            <div className="Column-bottom">{props.columnNumber}</div>
+            {columns}
         </div>
     )
 }
 
-export { Column }
+export default Column

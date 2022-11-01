@@ -1,11 +1,11 @@
-import React, {useState} from "react"
+import React from "react"
 
-interface myProps{
+interface playerInfo{
     playerNumber: number
     inputHandler: (event:any) => void;
 }
 
-function PlayerDetails({playerNumber, inputHandler}: myProps) {
+function PlayerDetails({playerNumber, inputHandler}: playerInfo) {
 
     return (
         <div>
@@ -16,4 +16,4 @@ function PlayerDetails({playerNumber, inputHandler}: myProps) {
     )
 }
 
-export { PlayerDetails }
+export default PlayerDetails

@@ -1,7 +1,7 @@
 import React from "react"
-import { Board } from "./GameScreenComponents/Board"
-import { GameHeader } from "./GameScreenComponents/GameHeader";
-import { GameFooter } from "./GameScreenComponents/GameFooter";
+import Board from "./GameScreenComponents/Board"
+import GameHeader from "./GameScreenComponents/GameHeader";
+import GameFooter from "./GameScreenComponents/GameFooter";
 
 function GameScreen(){
     return (

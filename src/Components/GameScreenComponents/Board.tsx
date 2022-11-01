@@ -1,29 +1,32 @@
 import React from "react"
-import { Column } from "./Column"
+import Column from "./Column"
 import "../../styles/GameScreen.css"
+import {numOfRows} from "../../Constants";
 
 function Board(){
+    const rows = []
+
+    for (let i = 0; i < numOfRows; i++)
+    {
+        rows.push(<div>{i+1}</div>)
+    }
+
     return (
         <div>
             <div className="Game-board">
                 <div className="Column-Yaxis">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
+                    {rows}
                 </div>
-                <Column columnNumber="A"/>
-                <Column columnNumber="B"/>
-                <Column columnNumber="C"/>
-                <Column columnNumber="D"/>
-                <Column columnNumber="E"/>
-                <Column columnNumber="F"/>
-                <Column columnNumber="G"/>
+                <Column columnLetter="A"/>
+                <Column columnLetter="B"/>
+                <Column columnLetter="C"/>
+                <Column columnLetter="D"/>
+                <Column columnLetter="E"/>
+                <Column columnLetter="F"/>
+                <Column columnLetter="G"/>
             </div>
         </div>
     )
 }
 
-export { Board }
+export default Board
