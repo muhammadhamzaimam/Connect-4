@@ -32,4 +32,4 @@ function HomeScreen({setPlayerNames, playerNames}: homeScreenProps){
     )
 }
 
-export { HomeScreen }
+export default HomeScreen

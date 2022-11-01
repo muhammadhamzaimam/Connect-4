@@ -4,18 +4,18 @@ import "../../styles/GameScreen.css"
 import {numOfRows} from "../../Constants";
 
 function Board(){
-    const rows = []
+    const rowNumbers = []
 
     for (let i = 0; i < numOfRows; i++)
     {
-        rows.push(<div>{i+1}</div>)
+        rowNumbers.push(<div>{i+1}</div>)
     }
 
     return (
         <div>
             <div className="Game-board">
                 <div className="Column-Yaxis">
-                    {rows}
+                    {rowNumbers}
                 </div>
                 <Column columnLetter="A"/>
                 <Column columnLetter="B"/>

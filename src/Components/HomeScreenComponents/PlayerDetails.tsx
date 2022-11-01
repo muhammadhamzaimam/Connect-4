@@ -1,8 +1,8 @@
 import React from "react"
 
 interface playerInfo{
-    playerNumber: number
-    inputHandler: (playerName:string) => void;
+    playerNumber: number,
+    inputHandler: (playerName:string) => void,
     PlayerName:string
 }
 

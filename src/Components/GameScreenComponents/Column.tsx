@@ -14,7 +14,7 @@ function Column(props: columnInfo){
         columns.push(<div className="Column-element"></div>)
     }
 
-    columns.push(<div className="Column-button">{props.columnLetter}</div>)
+    columns.push(<div className="Column-bottom">{props.columnLetter}</div>)
 
     return(
         <div className="Column">

@@ -7,4 +7,4 @@ function InstructionScreen(){
     )
 }
 
-export { InstructionScreen }
+export default InstructionScreen

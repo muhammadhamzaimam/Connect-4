@@ -7,15 +7,14 @@ interface PlayerInfo{
     playerNames:{Player1Name:string, Player2Name:string}
 }
 
-
 function GameScreen(props: PlayerInfo){
     return (
         <div>
-            <GameHeader playerName="Player 1"/>
+            <GameHeader playerName={props.playerNames.Player1Name}/>
             <Board/>
             <GameFooter player1Name={props.playerNames.Player1Name} player2Name={props.playerNames.Player2Name}/>
         </div>
     )
 }
 
-export { GameScreen }
+export default GameScreen
