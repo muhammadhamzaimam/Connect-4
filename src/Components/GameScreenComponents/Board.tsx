@@ -1,14 +1,29 @@
 import React from "react"
 import Column from "./Column"
 import "../../styles/GameScreen.css"
-import {numOfRows} from "../../Constants";
+import {numOfColumns, numOfRows} from "../../Constants";
 
-function Board(){
+interface playerInfo{
+    playerMoveCount: number
+    setPlayerMoveCount: React.Dispatch<React.SetStateAction<number>>
+    gameBoard:number[][]
+    setGameBoard:  React.Dispatch<React.SetStateAction<number[][]>>
+}
+
+function Board(props: playerInfo) {
     const rowNumbers = []
+    const columns = []
 
-    for (let i = 0; i < numOfRows; i++)
+    for (let i = 0; i < numOfRows; i++) {
+        rowNumbers.push(<div>{i + 1}</div>)
+    }
+
+    /**/
+    for (let i = 0; i < numOfColumns; i++)
     {
-        rowNumbers.push(<div>{i+1}</div>)
+        columns.push(<Column columnLetter={String.fromCharCode(65+i)}
+                             playerMoveCount={props.playerMoveCount} setPlayerMoveCount={props.setPlayerMoveCount}
+                             gameColumn={props.gameBoard[i]} setGameBoard={props.setGameBoard} columnNumber={i}/>)
     }
 
     return (
@@ -17,13 +32,7 @@ function Board(){
                 <div className="Column-Yaxis">
                     {rowNumbers}
                 </div>
-                <Column columnLetter="A"/>
-                <Column columnLetter="B"/>
-                <Column columnLetter="C"/>
-                <Column columnLetter="D"/>
-                <Column columnLetter="E"/>
-                <Column columnLetter="F"/>
-                <Column columnLetter="G"/>
+                {columns}
             </div>
         </div>
     )
