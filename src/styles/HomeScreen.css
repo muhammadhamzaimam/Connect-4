@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.playerName{
+    font-size: 15px;
+}
+
+.colorElement{
+    width: 20px;
+    height: 15px;
+}
+
+.colorContainer{
+    display:flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    width: 150px;
+}
+
+.playerDetailsContainer{
+    display: flex;
+}
+
+.playerDetails{
+    border: 2px black solid;
+    width: auto;
+}
+
+.colorPicker{
+    border: 2px solid red;
+    width: auto;
+}

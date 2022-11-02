@@ -18,7 +18,6 @@ function Board(props: playerInfo) {
         rowNumbers.push(<div>{i + 1}</div>)
     }
 
-    /**/
     for (let i = 0; i < numOfColumns; i++)
     {
         columns.push(<Column columnLetter={String.fromCharCode(65+i)}

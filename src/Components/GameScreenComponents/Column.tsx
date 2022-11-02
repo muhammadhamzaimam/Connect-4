@@ -12,22 +12,21 @@ interface columnInfo{
 }
 
 function Column(props: columnInfo){
-    const columnCells = [];
+    const column = [];
 
     for(let i = 0; i < numOfRows; i++)
     {
-        columnCells.push(<div className="Column-element">{props.gameColumn[i]}</div>)
+        column.push(<div className="Column-element" style={{backgroundColor: props.gameColumn[i]===1 ? "red": props.gameColumn[i] === 2 ? "yellow" : ""}}>{props.gameColumn[i]}</div>)
     }
 
-    columnCells.push(<div className="Column-bottom">{props.columnLetter}</div>)
+    column.push(<div className="Column-bottom">{props.columnLetter}</div>)
 
     function handleColumnClick(){
-        props.setPlayerMoveCount(prevCount => prevCount + 1)
-
         for(let i = props.gameColumn.length-1; i >= 0; i--)
         {
             if(props.gameColumn[i] === 0)
             {
+                props.setPlayerMoveCount(prevCount => prevCount + 1);
                 props.setGameBoard(prevGameBoard => {
                     prevGameBoard[props.columnNumber][i] = 1;
                     return prevGameBoard;
@@ -39,7 +38,7 @@ function Column(props: columnInfo){
 
     return(
         <div className="Column" onClick={handleColumnClick}>
-            {columnCells}
+            {column}
         </div>
     )
 }

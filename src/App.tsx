@@ -10,7 +10,7 @@ function App() {
     const[playerNames, setPlayerNames] = useState({Player1Name: "", Player2Name: ""});
     const[playerMoveCount, setPlayerMoveCount] = useState(0)
 
-    /*setup a 2D array for the game board
+    /*set up a 2D array for the game board
     * pass the array to board.tsx
     * board will pass the corresponding 1D array into column.tsx
     * column.tsx will use the values in the 1D array to populate the column element values*/
@@ -34,7 +34,8 @@ function App() {
       <BrowserRouter>
           <Routes>
               <Route index element={<HomeScreen setPlayerNames={setPlayerNames} playerNames={playerNames}/>}/>
-              <Route path="/game" element={<GameScreen playerNames={playerNames} playerMoveCount={playerMoveCount} setPlayerMoveCount={setPlayerMoveCount} gameBoard={gameBoard} setGameBoard={setGameBoard}/>}/>
+              <Route path="/game" element={<GameScreen playerNames={playerNames} playerMoveCount={playerMoveCount} setPlayerMoveCount={setPlayerMoveCount}
+                                                       gameBoard={gameBoard} setGameBoard={setGameBoard}/>}/>
               <Route path="/instructions" element={<InstructionScreen/>}/>
           </Routes>
       </BrowserRouter>
