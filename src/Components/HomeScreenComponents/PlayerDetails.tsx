@@ -13,6 +13,8 @@ function PlayerDetails({playerNumber, inputHandler, PlayerName}: playerInfo) {
     /*On button click of color button, you want to add the component ColorPicker to the div of ID colorPicker*/
 
     const[colorButtonIsActive, setColorButtonActive] = useState(false);
+    const[colorSelected, setColorSelected] = useState(false);
+
 
     return (
         <div className="playerDetailsContainer">
@@ -21,7 +23,7 @@ function PlayerDetails({playerNumber, inputHandler, PlayerName}: playerInfo) {
                 <input type="text" id="playerName" placeholder="Name" onChange={event => inputHandler(event.target.value)} value={PlayerName}/>
             </div>
             <div className="colorPicker">
-                <ColorPicker showColors={colorButtonIsActive} setShowColors={setColorButtonActive}></ColorPicker>
+                <ColorPicker showColors={colorButtonIsActive} setShowColors={setColorButtonActive} colorSelected={colorSelected} setColorSelected={setColorSelected}></ColorPicker>
             </div>
         </div>
     )
