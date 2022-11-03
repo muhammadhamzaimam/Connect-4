@@ -8,6 +8,7 @@ import {numOfColumns, numOfRows} from "./Constants";
 function App() {
 
     const[playerNames, setPlayerNames] = useState({Player1Name: "", Player2Name: ""});
+    const[playerColors, setPlayerColors] = useState({Player1Color: "", Player2Color: ""});
     const[playerMoveCount, setPlayerMoveCount] = useState(0)
 
     /*set up a 2D array for the game board
@@ -33,9 +34,11 @@ function App() {
     return (
       <BrowserRouter>
           <Routes>
-              <Route index element={<HomeScreen setPlayerNames={setPlayerNames} playerNames={playerNames}/>}/>
+              <Route index element={<HomeScreen setPlayerNames={setPlayerNames} playerNames={playerNames}
+                                                setPlayerColors={setPlayerColors}/>}/>
               <Route path="/game" element={<GameScreen playerNames={playerNames} playerMoveCount={playerMoveCount} setPlayerMoveCount={setPlayerMoveCount}
-                                                       gameBoard={gameBoard} setGameBoard={setGameBoard}/>}/>
+                                                       gameBoard={gameBoard} setGameBoard={setGameBoard}
+                                                       playerColors={playerColors} setPlayerColors={setPlayerColors}/>}/>
               <Route path="/instructions" element={<InstructionScreen/>}/>
           </Routes>
       </BrowserRouter>

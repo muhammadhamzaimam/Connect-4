@@ -9,6 +9,7 @@ interface columnInfo{
     columnNumber: number
     gameColumn: number[]
     setGameBoard: React.Dispatch<React.SetStateAction<number[][]>>
+    playerColors: {Player1Color:string, Player2Color:string}
 }
 
 function Column(props: columnInfo){
@@ -16,7 +17,7 @@ function Column(props: columnInfo){
 
     for(let i = 0; i < numOfRows; i++)
     {
-        column.push(<div className="Column-element" style={{backgroundColor: props.gameColumn[i]===1 ? "red": props.gameColumn[i] === 2 ? "yellow" : ""}}>{props.gameColumn[i]}</div>)
+        column.push(<div className="Column-element" style={{backgroundColor: props.gameColumn[i]===1 ? props.playerColors.Player1Color: props.gameColumn[i] === 2 ? props.playerColors.Player2Color : ""}}>{props.gameColumn[i]}</div>)
     }
 
     column.push(<div className="Column-bottom">{props.columnLetter}</div>)
@@ -28,7 +29,12 @@ function Column(props: columnInfo){
             {
                 props.setPlayerMoveCount(prevCount => prevCount + 1);
                 props.setGameBoard(prevGameBoard => {
-                    prevGameBoard[props.columnNumber][i] = 1;
+                    if(props.playerMoveCount%2 === 1){
+                        prevGameBoard[props.columnNumber][i] = 2;
+                    }
+                    else{
+                        prevGameBoard[props.columnNumber][i] = 1;
+                    }
                     return prevGameBoard;
                 })
                 return

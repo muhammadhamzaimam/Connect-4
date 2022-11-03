@@ -7,6 +7,7 @@ interface colorDetails{
     setShowColors: React.Dispatch<React.SetStateAction<boolean>>
     colorSelected: boolean
     setColorSelected: React.Dispatch<React.SetStateAction<boolean>>
+    setPlayerColor: (playerColor:string) => void
 }
 
 function ColorPicker(props:colorDetails){
@@ -21,6 +22,7 @@ function ColorPicker(props:colorDetails){
 
     function handleColorSelection(color:any){
         props.setColorSelected(true);
+        props.setPlayerColor(color.hex);
         setButtonColor((color.hex));
         props.setShowColors( prevVal => !prevVal)
     }

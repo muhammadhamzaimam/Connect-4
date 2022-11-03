@@ -10,6 +10,8 @@ interface PlayerInfo{
     setPlayerMoveCount: React.Dispatch<React.SetStateAction<number>>
     gameBoard: number[][]
     setGameBoard:  React.Dispatch<React.SetStateAction<number[][]>>
+    playerColors:{Player1Color:string, Player2Color:string}
+    setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
 }
 
 function GameScreen(props: PlayerInfo){
@@ -28,7 +30,7 @@ function GameScreen(props: PlayerInfo){
         <div>
             <GameHeader playerName={playerName}/>
             <Board playerMoveCount={props.playerMoveCount} setPlayerMoveCount={props.setPlayerMoveCount} gameBoard={props.gameBoard}
-                   setGameBoard={props.setGameBoard}/>
+                   setGameBoard={props.setGameBoard} playerColors={props.playerColors} setPlayerColors={props.setPlayerColors}/>
             <GameFooter player1Name={props.playerNames.Player1Name} player2Name={props.playerNames.Player2Name}/>
         </div>
     )
