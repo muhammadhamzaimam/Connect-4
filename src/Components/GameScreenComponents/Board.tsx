@@ -13,12 +13,11 @@ interface playerInfo{
 }
 
 function Board(props: playerInfo) {
-    const rowNumbers = []
-    const columns = []
 
-    for (let i = 0; i < numOfRows; i++) {
-        rowNumbers.push(<div>{i + 1}</div>)
-    }
+    /*creates the row numbers on the left side of the board*/
+    const rowNumbers = Array.from({length: numOfRows}, (_,i) => <div key={i}>{i+1}</div>);
+
+    const columns = []
 
     for (let i = 0; i < numOfColumns; i++)
     {
