@@ -1,4 +1,4 @@
-*{
+body{
     margin: 0;
     padding: 0;
 }
@@ -8,7 +8,7 @@
     box-sizing: border-box;
     flex-direction: column;
     width: 10vw;
-    height: 70vh;
+    height: 100%;
     align-items: center;
     justify-content: space-around;
     padding: 2px;
@@ -19,7 +19,7 @@
     box-sizing: border-box;
     flex-direction: column;
     width: 5vw;
-    height: 70vh;
+    height: 100%;
     align-items: center;
     justify-content: space-around;
     padding: 2px;
@@ -39,7 +39,6 @@
 
 .Game-board{
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100vw;

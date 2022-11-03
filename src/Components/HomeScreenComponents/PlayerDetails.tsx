@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import ColorPicker from "./ColorPicker"
-import "../../styles/HomeScreen.css";
+import "../HomeScreen.css";
 
 interface playerInfo{
     playerNumber: number,
@@ -16,12 +16,11 @@ function PlayerDetails({playerNumber, inputHandler, PlayerName, setPlayerColor}:
     const[colorButtonIsActive, setColorButtonActive] = useState(false);
     const[colorSelected, setColorSelected] = useState(false);
 
-
     return (
         <div className="playerDetailsContainer">
             <div className="playerDetails">
                 <label htmlFor="playerName" className="playerName">Player {playerNumber}: </label>
-                <input type="text" id="playerName" placeholder="Name" onChange={event => inputHandler(event.target.value)} value={PlayerName}/>
+                <input type="text" id={`player-${playerNumber}-name`} placeholder="Name" onChange={event => inputHandler(event.target.value)} value={PlayerName}/>
             </div>
             <div className="colorPicker">
                 <ColorPicker showColors={colorButtonIsActive} setShowColors={setColorButtonActive} colorSelected={colorSelected} setColorSelected={setColorSelected}

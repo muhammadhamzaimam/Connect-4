@@ -1,6 +1,6 @@
 import React from "react"
 import Column from "./Column"
-import "../../styles/GameScreen.css"
+import "../GameScreen.css"
 import {numOfColumns, numOfRows} from "../../Constants";
 
 interface playerInfo{

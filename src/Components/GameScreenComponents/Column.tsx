@@ -1,5 +1,5 @@
 import React from "react"
-import "../../styles/GameScreen.css"
+import "../GameScreen.css"
 import { numOfRows } from "../../Constants";
 
 interface columnInfo{

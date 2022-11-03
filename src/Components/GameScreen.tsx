@@ -31,7 +31,7 @@ function GameScreen(props: PlayerInfo){
             <GameHeader playerName={playerName}/>
             <Board playerMoveCount={props.playerMoveCount} setPlayerMoveCount={props.setPlayerMoveCount} gameBoard={props.gameBoard}
                    setGameBoard={props.setGameBoard} playerColors={props.playerColors} setPlayerColors={props.setPlayerColors}/>
-            <GameFooter player1Name={props.playerNames.Player1Name} player2Name={props.playerNames.Player2Name}/>
+            <GameFooter playerNames={props.playerNames}/>
         </div>
     )
 }

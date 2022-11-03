@@ -1,10 +1,10 @@
 import React from "react"
-import "../../styles/InstructionScreen.css"
+import "../InstructionScreen.css"
 import { Link } from "react-router-dom";
 
 function Instructions(){
     return(
-        <div>
+        <>
             <div className="Instructions">
                 <h1 className="Instruction-title">Instructions</h1>
                 <p>
@@ -16,7 +16,7 @@ function Instructions(){
                     <button>Back</button>
                 </Link>
             </div>
-        </div>
+        </>
     )
 }
 

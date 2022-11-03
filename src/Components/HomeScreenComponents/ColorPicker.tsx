@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import "../../styles/HomeScreen.css"
+import "../HomeScreen.css"
 import { GithubPicker } from "react-color";
 
 interface colorDetails{
