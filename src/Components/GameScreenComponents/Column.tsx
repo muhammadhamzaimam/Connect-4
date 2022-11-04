@@ -10,6 +10,8 @@ interface columnInfo{
     gameColumn: number[]
     setGameBoard: React.Dispatch<React.SetStateAction<number[][]>>
     playerColors: {Player1Color:string, Player2Color:string}
+    playerCoordinates: {Column:number, Row:number}
+    setPlayerCoordinates: React.Dispatch<React.SetStateAction<{Column: number, Row: number}>>
 }
 
 function Column(props: columnInfo){
@@ -35,6 +37,7 @@ function Column(props: columnInfo){
                     else{
                         prevGameBoard[props.columnNumber][i] = 1;
                     }
+                    props.setPlayerCoordinates({Column: props.columnNumber, Row:i})
                     return prevGameBoard;
                 })
                 return
