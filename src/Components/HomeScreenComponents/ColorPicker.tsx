@@ -34,7 +34,7 @@ function ColorPicker(props:colorDetails){
     return(
         <div className="colorContainer">
             {colorArray}
-            <button onClick={showColors} style={{backgroundColor:buttonColor}}></button>
+            <button className="color-select-button" onClick={showColors} style={{backgroundColor:buttonColor}}></button>
         </div>
     )
 }

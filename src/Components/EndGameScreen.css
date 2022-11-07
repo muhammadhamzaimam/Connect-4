@@ -1,0 +1,18 @@
+.end-game-container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0);
+}
+
+.end-game{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.4);
+    width: 40vw;
+    height: 40vh;
+    margin: 30vh 30vw;
+}

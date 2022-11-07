@@ -4,7 +4,15 @@ body{
 }
 
 .playerName{
-    font-size: 15px;
+    font-size: 30px;
+}
+
+#player-1-name{
+    font-size: 30px;
+}
+
+#player-2-name{
+    font-size: 30px;
 }
 
 .colorElement{
@@ -14,21 +22,41 @@ body{
 
 .colorContainer{
     display:flex;
-    justify-content: space-between;
-    border: 2px solid black;
     width: auto;
+}
+
+.color-select-button{
+    width: 20px;
+    height: 20px;
 }
 
 .playerDetailsContainer{
     display: flex;
+    grid-column-start: 1;
 }
 
 .playerDetails{
     border: 2px black solid;
-    width: auto;
+    width: 30vw;
 }
 
 .colorPicker{
     border: 2px solid red;
     width: auto;
+    height: 100%;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.player-container{
+    display: grid;
+    gap: 5vw;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 30vw 30vw;
+    grid-template-rows: 10vh 10vh 20vh;
+    border: 2px solid blue;
 }

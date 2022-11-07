@@ -1,14 +1,16 @@
 import React from "react"
 import PlayerDetails from "./HomeScreenComponents/PlayerDetails"
 import { Link } from "react-router-dom";
+import {numOfColumns, numOfRows} from "../Constants";
 
 interface homeScreenProps{
     playerNames:{Player1Name:string, Player2Name:string}
     setPlayerNames: React.Dispatch<React.SetStateAction<{Player1Name: string, Player2Name: string}>>
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
+    setGameBoard:  React.Dispatch<React.SetStateAction<number[][]>>
 }
 
-function HomeScreen({setPlayerNames, playerNames, setPlayerColors}: homeScreenProps){
+function HomeScreen({setPlayerNames, playerNames, setPlayerColors, setGameBoard}: homeScreenProps){
 
     function setPlayer1Name(player1Name:string){
         setPlayerNames(prevNames => ({...prevNames,Player1Name:player1Name}) )
@@ -26,17 +28,24 @@ function HomeScreen({setPlayerNames, playerNames, setPlayerColors}: homeScreenPr
         setPlayerColors( prevColor => ({...prevColor,Player2Color:player2Color}))
     }
 
+    function handleStartGame()
+    {
+        setGameBoard(Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0)));
+    }
+
     return (
-        <div>
+        <div className="main-container">
             <h1>CONNECT-4</h1>
-            <PlayerDetails playerNumber={1} inputHandler={setPlayer1Name} PlayerName={playerNames.Player1Name} setPlayerColor={setPlayer1Color}/>
-            <PlayerDetails playerNumber={2} inputHandler={setPlayer2Name} PlayerName={playerNames.Player2Name} setPlayerColor={setPlayer2Color}/>
-            <Link to="/game">
-                <button>Play</button>
-            </Link>
-            <Link to="/instructions">
-                <button>Instructions</button>
-            </Link>
+            <div className="player-container">
+                <PlayerDetails playerNumber={1} inputHandler={setPlayer1Name} PlayerName={playerNames.Player1Name} setPlayerColor={setPlayer1Color}/>
+                <PlayerDetails playerNumber={2} inputHandler={setPlayer2Name} PlayerName={playerNames.Player2Name} setPlayerColor={setPlayer2Color}/>
+                <Link to="/game">
+                    <button onClick={handleStartGame}>Play</button>
+                </Link>
+                <Link to="/instructions">
+                    <button>Instructions</button>
+                </Link>
+            </div>
         </div>
     )
 }

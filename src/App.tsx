@@ -35,7 +35,7 @@ function App() {
       <BrowserRouter>
           <Routes>
               <Route index element={<HomeScreen setPlayerNames={setPlayerNames} playerNames={playerNames}
-                                                setPlayerColors={setPlayerColors}/>}/>
+                                                setPlayerColors={setPlayerColors} setGameBoard={setGameBoard}/>}/>
               <Route path="/game" element={<GameScreen playerNames={playerNames} playerMoveCount={playerMoveCount} setPlayerMoveCount={setPlayerMoveCount}
                                                        gameBoard={gameBoard} setGameBoard={setGameBoard}
                                                        playerColors={playerColors} setPlayerColors={setPlayerColors}/>}/>
