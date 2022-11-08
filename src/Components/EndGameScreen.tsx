@@ -14,6 +14,7 @@ function EndGameScreen(props:playerDetails)
 {
     let playerName = ""
 
+    /*if playerMoveCount%2 === 1, playerName is player2Name, else player1Name*/
     if(props.playerNumber === 1)
     {
         playerName = props.playerNames.Player1Name
@@ -23,6 +24,7 @@ function EndGameScreen(props:playerDetails)
         playerName =  props.playerNames.Player2Name
     }
 
+    /*TODO: conditional rendering here...*/
     if(props.gameStatus === gameResult.win)
     {
         return(

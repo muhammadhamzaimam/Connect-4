@@ -11,8 +11,6 @@ interface playerInfo{
     setGameBoard:  React.Dispatch<React.SetStateAction<number[][]>>
     playerColors:{Player1Color:string, Player2Color:string}
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
-    showEndGame: boolean
-    setShowEndGame: React.Dispatch<React.SetStateAction<boolean>>
     setPlayerNumber: React.Dispatch<React.SetStateAction<number>>
     setGameStatus: React.Dispatch<React.SetStateAction<gameResult>>
 }
@@ -30,9 +28,11 @@ function Board(props: playerInfo) {
         }
     }
 
+    /*TODO: remove playerNumber state, use only the playerMoveCount*/
+
     /*should take in the coordinates of the current players token and the playerNumber*/
 
-    function checkPlayerWin(){
+    /*function checkPlayerWin(){
         let playerNumber = getPlayerNumber();
         props.setPlayerNumber(playerNumber);
 
@@ -42,17 +42,31 @@ function Board(props: playerInfo) {
             if( gameStatus.result === gameResult.win )
             {
                 props.setGameStatus(gameResult.win);
-                props.setShowEndGame(true);
             }
 
             else if(gameStatus.result === gameResult.draw)
             {
                 props.setGameStatus(gameResult.draw);
-                props.setShowEndGame(true);
             }
-    }
+    }*/
 
-    useEffect(checkPlayerWin, [props.playerMoveCount]);
+    useEffect(() => {
+        let playerNumber = getPlayerNumber();
+        props.setPlayerNumber(playerNumber);
+
+        let gameStatus = checkGameStatus(props.gameBoard, playerNumber, playerCoordinates);
+
+        //update some state variable to show popup
+        if( gameStatus.result === gameResult.win )
+        {
+            props.setGameStatus(gameResult.win);
+        }
+
+        else if(gameStatus.result === gameResult.draw)
+        {
+            props.setGameStatus(gameResult.draw);
+        }
+    }, [props.playerMoveCount]);
 
     /*creates the row numbers on the left side of the board*/
     const rowNumbers = Array.from({length: numOfRows}, (_,i) => <div key={i}>{i+1}</div>);
