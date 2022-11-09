@@ -1,11 +1,12 @@
 import React from "react"
 import "./EndGameScreen.css"
 import {Link} from "react-router-dom";
-import {gameStatus, gameResult} from "./GameScreenComponents/WinningLogic"
+import {gameResult, gameStatus} from "./GameScreenComponents/WinningLogic"
 
 interface playerDetails{
     playerNames: {Player1Name:string, Player2Name:string};
     gameStatus: gameStatus;
+    playerScores: {Player1Score: number, Player2Score: number}
 }
 
 function EndGameScreen(props:playerDetails)
@@ -22,41 +23,40 @@ function EndGameScreen(props:playerDetails)
         playerName =  props.playerNames.Player1Name
     }
 
-    /*TODO: conditional rendering here...*/
-    if(props.gameStatus.result === gameResult.win)
-    {
-        return(
-            <div className="end-game-container">
-                <div className="end-game">
-                    <p>{playerName} won!</p>
-                    <Link to="/">
-                        <button>Home</button>
-                    </Link>
-                </div>
+    return (
+        <div className="end-game-container">
+            <div className="end-game">
+                {props.gameStatus.result === gameResult.win && (
+                    <>
+                        <h1 className="winning-line">{playerName} won!</h1>
+                        <div className="end-game-scores">
+                            <p className="p1-score">{props.playerNames.Player1Name} score: {props.playerScores.Player1Score}</p>
+                            <p>{props.playerNames.Player2Name} score: {props.playerScores.Player2Score}</p>
+                        </div>
+                        <Link to="/">
+                            <div>
+                                <button className="home-button">Home</button>
+                            </div>
+                        </Link>
+                    </>
+                    )}
+                {props.gameStatus.result === gameResult.draw && (
+                    <>
+                        <h1 className="winning-line">It's a draw!</h1>
+                        <div className="end-game-scores">
+                            <p className="p1-score">{props.playerNames.Player1Name} score: {props.playerScores.Player1Score}</p>
+                            <p>{props.playerNames.Player2Name} score: {props.playerScores.Player2Score}</p>
+                        </div>
+                        <Link to="/">
+                            <div>
+                                <button className="home-button">Home</button>
+                            </div>
+                        </Link>
+                    </>
+                )}
             </div>
-        )
-    }
-
-    else if(props.gameStatus.result === gameResult.draw){
-        return(
-            <div className="end-game-container">
-                <div className="end-game">
-                    <p>It's a draw!</p>
-                    <Link to="/">
-                        <button>Home</button>
-                    </Link>
-                </div>
-            </div>
-        )
-    }
-
-    else{
-        return(
-            <div className="end-game-container">
-            </div>
-        )
-    }
-
+        </div>
+    )
 }
 
 export default EndGameScreen;

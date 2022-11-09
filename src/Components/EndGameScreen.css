@@ -1,8 +1,15 @@
+button{
+    border-radius: 5px;
+}
+
 .end-game-container{
+    display: flex;
     position: absolute;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0);
+    align-items: center;
+    justify-content: center;
 }
 
 .end-game{
@@ -11,8 +18,36 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.6);
     width: 40vw;
     height: 40vh;
-    margin: 30vh 30vw;
+    border-radius: 20px;
+}
+
+.home-button{
+    font-size: 40px;
+    background-color: #32c832;
+}
+
+.winning-line{
+    color: white;
+    font-size: 50px;
+    margin: 2vh 0 2vh 0;
+    padding: 0;
+}
+
+.end-game-scores{
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin: 0 0 4vh 0;
+}
+
+.end-game-scores > p{
+    font-size: 40px;
+}
+
+.p1-score{
+    margin-right: 2vw;
 }
