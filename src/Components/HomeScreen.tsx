@@ -1,23 +1,27 @@
 import React from "react"
 import PlayerDetails from "./HomeScreenComponents/PlayerDetails"
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import {numOfColumns, numOfRows} from "../Constants";
+import {gameResult} from "./GameScreenComponents/WinningLogic";
 
 interface homeScreenProps{
     playerNames:{Player1Name:string, Player2Name:string}
     setPlayerNames: React.Dispatch<React.SetStateAction<{Player1Name: string, Player2Name: string}>>
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
-    setGameBoard:  React.Dispatch<React.SetStateAction<number[][]>>
+    setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][]}>>
+    setPlayerScores: React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 
-function HomeScreen({setPlayerNames, playerNames, setPlayerColors, setGameBoard}: homeScreenProps){
+function HomeScreen({setPlayerNames, playerNames, setPlayerColors, setGameStatus, setPlayerScores}: homeScreenProps){
 
     function setPlayer1Name(player1Name:string){
         setPlayerNames(prevNames => ({...prevNames,Player1Name:player1Name}) )
+        setPlayerScores( {Player1Score: 0, Player2Score: 0})
     }
 
     function setPlayer2Name(player2Name:string){
         setPlayerNames(prevNames => ({...prevNames,Player2Name:player2Name}) )
+        setPlayerScores( {Player1Score: 0, Player2Score: 0})
     }
 
     function setPlayer1Color(player1Color:string){
@@ -30,21 +34,26 @@ function HomeScreen({setPlayerNames, playerNames, setPlayerColors, setGameBoard}
 
     function handleStartGame()
     {
-        setGameBoard(Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0)));
+        setGameStatus( prevState => {return {...prevState, gameBoard: Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0)), result: gameResult.ongoing, playerNumber: 1}});
     }
 
     return (
         <div className="main-container">
-            <h1>CONNECT-4</h1>
+            <div className="title">
+                <h1>CONNECT-4</h1>
+            </div>
             <div className="player-container">
                 <PlayerDetails playerNumber={1} inputHandler={setPlayer1Name} PlayerName={playerNames.Player1Name} setPlayerColor={setPlayer1Color}/>
                 <PlayerDetails playerNumber={2} inputHandler={setPlayer2Name} PlayerName={playerNames.Player2Name} setPlayerColor={setPlayer2Color}/>
-                <Link to="/game">
-                    <button onClick={handleStartGame}>Play</button>
-                </Link>
-                <Link to="/instructions">
-                    <button>Instructions</button>
-                </Link>
+                <div className="buttons">
+                    <Link to="/game">
+                        <button onClick={handleStartGame} className = "regular-button play-button">Play</button>
+                    </Link>
+                    <Link to="/instructions">
+                        <button className = "regular-button instruction-button">Instructions</button>
+                    </Link>
+                </div>
+
             </div>
         </div>
     )

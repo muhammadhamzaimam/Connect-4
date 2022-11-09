@@ -1,31 +1,29 @@
 import React from "react"
 import "./EndGameScreen.css"
 import {Link} from "react-router-dom";
-import {gameResult} from "./GameScreenComponents/WinningLogic";
-
+import {gameStatus, gameResult} from "./GameScreenComponents/WinningLogic"
 
 interface playerDetails{
-    playerNumber: number;
     playerNames: {Player1Name:string, Player2Name:string};
-    gameStatus: gameResult;
+    gameStatus: gameStatus;
 }
 
 function EndGameScreen(props:playerDetails)
 {
-    let playerName = ""
+    let playerName
 
-    /*if playerMoveCount%2 === 1, playerName is player2Name, else player1Name*/
-    if(props.playerNumber === 1)
+    /*The Column component will always return the next player, so it will be the previous player that wins...*/
+    if(props.gameStatus.playerNumber === 1)
     {
-        playerName = props.playerNames.Player1Name
+        playerName = props.playerNames.Player2Name
     }
-    else if(props.playerNumber === 2)
+    else
     {
-        playerName =  props.playerNames.Player2Name
+        playerName =  props.playerNames.Player1Name
     }
 
     /*TODO: conditional rendering here...*/
-    if(props.gameStatus === gameResult.win)
+    if(props.gameStatus.result === gameResult.win)
     {
         return(
             <div className="end-game-container">
@@ -39,7 +37,7 @@ function EndGameScreen(props:playerDetails)
         )
     }
 
-    else if(props.gameStatus === gameResult.draw){
+    else if(props.gameStatus.result === gameResult.draw){
         return(
             <div className="end-game-container">
                 <div className="end-game">

@@ -1,7 +1,10 @@
 import {numOfColumns, numOfRows} from "../../Constants";
+import React from "react";
 
-interface gameStatus{
+export interface gameStatus{
     result: gameResult /*win, lose, draw*/
+    playerNumber: number
+    gameBoard: number[][]
 }
 
 /*interface gameStatusWin extends gameStatus{
@@ -14,7 +17,7 @@ export enum gameResult{
     ongoing
 }
 
-function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordinates:{Column:number, Row:number}):gameStatus
+function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordinates:{Column:number, Row:number}, playerScores:{Player1Score:number, Player2Score:number}, setPlayerScores:React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>):gameStatus
 {
     /*check if winner by calling checkHorizontal/checkVertical/checkDiagonal
     * if so, return gameResult.win
@@ -28,15 +31,29 @@ function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordi
 
     if(horizontalWin || verticalWin || diagonalWin)
     {
-        return ({result:gameResult.win});
+        if(playerNumber === 1)
+        {
+            setPlayerScores(prevScore => {
+                return {Player1Score: prevScore.Player1Score+1, Player2Score: prevScore.Player2Score};
+            })
+        }
+
+        else if(playerNumber === 2)
+        {
+            setPlayerScores(prevScore => {
+                return {Player1Score: prevScore.Player1Score, Player2Score: prevScore.Player2Score+1};
+            })
+        }
+
+        return ({result:gameResult.win, playerNumber:playerNumber, gameBoard: gameBoard});
     }
 
     else if(isDraw(gameBoard)){
-        return ({result:gameResult.draw})
+        return ({result:gameResult.draw, playerNumber: playerNumber, gameBoard: gameBoard})
     }
 
     else{
-        return ({result:gameResult.ongoing})
+        return ({result:gameResult.ongoing, playerNumber: playerNumber, gameBoard: gameBoard})
     }
 
 }

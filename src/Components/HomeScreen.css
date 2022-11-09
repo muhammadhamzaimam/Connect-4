@@ -1,62 +1,76 @@
 body{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    background-color: aqua;
 }
 
-.playerName{
-    font-size: 30px;
+.title{
+    margin-bottom: 12vh;
 }
 
-#player-1-name{
-    font-size: 30px;
-}
-
-#player-2-name{
-    font-size: 30px;
-}
-
-.colorElement{
-    width: 20px;
-    height: 15px;
-}
-
-.colorContainer{
-    display:flex;
-    width: auto;
-}
-
-.color-select-button{
-    width: 20px;
-    height: 20px;
-}
-
-.playerDetailsContainer{
-    display: flex;
-    grid-column-start: 1;
-}
-
-.playerDetails{
-    border: 2px black solid;
-    width: 30vw;
-}
-
-.colorPicker{
-    border: 2px solid red;
-    width: auto;
-    height: 100%;
+.title > h1{
+    font-size: 100px;
 }
 
 .main-container{
     display: flex;
     flex-direction: column;
+    width: 100vw;
+    height: 75vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .player-container{
-    display: grid;
-    gap: 5vw;
-    justify-content: center;
-    align-content: center;
-    grid-template-columns: 30vw 30vw;
-    grid-template-rows: 10vh 10vh 20vh;
-    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-container > div{
+    margin-bottom: 5vh;
+}
+
+.playerDetailsContainer{
+    display: flex;
+    width: 41vw;
+    align-items: center;
+}
+
+#player-1-name, #player-2-name, .playerName{
+    font-size: 45px;
+}
+
+#player-1-name, #player-2-name{
+    background-color: #e6e6e6;
+    color: black;
+}
+
+#player-1-name{
+    margin-left: 4px;
+}
+
+.color-select-button{
+    margin: 0 0 0 10px;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+}
+
+.regular-button{
+    margin: 0;
+    padding: 10px;
+    width: 19.5vw;
+    font-size: 40px;
+}
+
+.play-button{
+    margin-right: 2vw;
+    margin-top: 2vh;
+    background-color: #32c832;
+}
+
+.instruction-button{
+    background-color: #fa2828;
 }
