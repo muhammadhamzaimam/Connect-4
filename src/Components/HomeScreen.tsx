@@ -7,12 +7,13 @@ import {gameResult} from "./GameScreenComponents/WinningLogic";
 interface homeScreenProps{
     playerNames:{Player1Name:string, Player2Name:string}
     setPlayerNames: React.Dispatch<React.SetStateAction<{Player1Name: string, Player2Name: string}>>
+    playerColors: {Player1Color: string, Player2Color: string}
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
     setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][]}>>
     setPlayerScores: React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 
-function HomeScreen({setPlayerNames, playerNames, setPlayerColors, setGameStatus, setPlayerScores}: homeScreenProps){
+function HomeScreen({setPlayerNames, playerNames, playerColors, setPlayerColors, setGameStatus, setPlayerScores}: homeScreenProps){
 
     function setPlayer1Name(player1Name:string){
         setPlayerNames(prevNames => ({...prevNames,Player1Name:player1Name}) )
@@ -43,8 +44,8 @@ function HomeScreen({setPlayerNames, playerNames, setPlayerColors, setGameStatus
                 <h1>CONNECT-4</h1>
             </div>
             <div className="player-container">
-                <PlayerDetails playerNumber={1} inputHandler={setPlayer1Name} PlayerName={playerNames.Player1Name} setPlayerColor={setPlayer1Color}/>
-                <PlayerDetails playerNumber={2} inputHandler={setPlayer2Name} PlayerName={playerNames.Player2Name} setPlayerColor={setPlayer2Color}/>
+                <PlayerDetails playerNumber={1} inputHandler={setPlayer1Name} PlayerName={playerNames.Player1Name} playerColor = {playerColors.Player1Color} setPlayerColor={setPlayer1Color}/>
+                <PlayerDetails playerNumber={2} inputHandler={setPlayer2Name} PlayerName={playerNames.Player2Name} playerColor = {playerColors.Player2Color} setPlayerColor={setPlayer2Color}/>
                 <div className="buttons">
                     <Link to="/game">
                         <button onClick={handleStartGame} className = "regular-button play-button">Play</button>

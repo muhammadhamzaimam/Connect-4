@@ -9,7 +9,7 @@ import {gameResult} from "./Components/GameScreenComponents/WinningLogic";
 function App() {
 
     const[playerNames, setPlayerNames] = useState({Player1Name: "", Player2Name: ""});
-    const[playerColors, setPlayerColors] = useState({Player1Color: "", Player2Color: ""});
+    const[playerColors, setPlayerColors] = useState({Player1Color: "#FFFFFF", Player2Color: "#FFFFFF"});
     const[playerScores, setPlayerScores] = useState({Player1Score: 0, Player2Score:0})
 
     /*set up a 2D array for the game board
@@ -40,6 +40,7 @@ function App() {
           <Routes>
               <Route index element={<HomeScreen setPlayerNames={setPlayerNames}
                                                 playerNames={playerNames}
+                                                playerColors={playerColors}
                                                 setPlayerColors={setPlayerColors}
                                                 setGameStatus={setGameStatus}
                                                 setPlayerScores={setPlayerScores}/>}/>

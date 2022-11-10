@@ -10,16 +10,17 @@ body{
 }
 
 p{
-    font-size: 30px;
+    font-size: 40px;
 }
 
 h1{
-    font-size: 60px;
+    font-size: 70px;
     margin-bottom: 5vh;
 }
 
 button{
     margin: 5vh auto;
-    font-size: 30px;
-    padding: 5px;
+    font-size: 40px;
+    padding: 10px;
+    background-color: #fa2828;
 }

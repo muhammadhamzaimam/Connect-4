@@ -64,7 +64,9 @@ function GameScreen(props: PlayerInfo){
             <div>
                 {(props.gameStatus.result !== gameResult.ongoing) && <EndGameScreen playerNames={props.playerNames}
                                                                                     gameStatus={props.gameStatus}
-                                                                                    playerScores={props.playerScores}/>}
+                                                                                    playerScores={props.playerScores}
+                                                                                    playerColors={props.playerColors}
+                                                                                    setPlayerColors={props.setPlayerColors}/>}
                 <GameHeader playerName={playerName}/>
                 <Board gameBoard={props.gameStatus.gameBoard}
                        playerColors={props.playerColors}

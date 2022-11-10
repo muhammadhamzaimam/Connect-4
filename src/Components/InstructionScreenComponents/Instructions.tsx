@@ -1,8 +1,16 @@
 import React from "react"
 import "../InstructionScreen.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Instructions(){
+
+    const goBack = useNavigate();
+
+    function handleBack()
+    {
+        goBack(-1);
+    }
+
     return(
         <>
             <div className="Instructions">
@@ -13,7 +21,7 @@ function Instructions(){
                     row of 4 wins. Good luck, have fun!
                 </p>
                 <Link to="/">
-                    <button>Back</button>
+                    <button onClick={handleBack}>Back</button>
                 </Link>
             </div>
         </>

@@ -6,12 +6,11 @@ interface playerInfo{
     playerNumber: number,
     inputHandler: (playerName:string) => void,
     PlayerName:string
+    playerColor: string
     setPlayerColor: (playerColor:string) => void
 }
 
-function PlayerDetails({playerNumber, inputHandler, PlayerName, setPlayerColor}: playerInfo) {
-
-    /*On button click of color button, you want to add the component ColorPicker to the div of ID colorPicker*/
+function PlayerDetails({playerNumber, inputHandler, PlayerName, setPlayerColor, playerColor}: playerInfo) {
 
     const[colorButtonIsActive, setColorButtonActive] = useState(false);
     const[colorSelected, setColorSelected] = useState(false);
@@ -23,8 +22,12 @@ function PlayerDetails({playerNumber, inputHandler, PlayerName, setPlayerColor}:
                 <input type="text" id={`player-${playerNumber}-name`} placeholder="Name" onChange={event => inputHandler(event.target.value)} value={PlayerName}/>
             </div>
             <div className="colorPicker">
-                <ColorPicker showColors={colorButtonIsActive} setShowColors={setColorButtonActive} colorSelected={colorSelected} setColorSelected={setColorSelected}
-                             setPlayerColor={setPlayerColor}></ColorPicker>
+                <ColorPicker showColors={colorButtonIsActive}
+                             setShowColors={setColorButtonActive}
+                             colorSelected={colorSelected}
+                             setColorSelected={setColorSelected}
+                             setPlayerColor={setPlayerColor}
+                             playerColor={playerColor}></ColorPicker>
             </div>
         </div>
     )
