@@ -1,9 +1,20 @@
 import React from "react"
+import Board from "./GameScreenComponents/Board"
+import GameHeader from "./GameScreenComponents/GameHeader";
+import GameFooter from "./GameScreenComponents/GameFooter";
 
-function GameScreen(){
+interface PlayerInfo{
+    playerNames:{Player1Name:string, Player2Name:string}
+}
+
+function GameScreen(props: PlayerInfo){
     return (
-        <div>This is the game screen</div>
+        <div>
+            <GameHeader playerName={props.playerNames.Player1Name}/>
+            <Board/>
+            <GameFooter player1Name={props.playerNames.Player1Name} player2Name={props.playerNames.Player2Name}/>
+        </div>
     )
 }
 
-export { GameScreen }
+export default GameScreen
