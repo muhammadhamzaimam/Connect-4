@@ -42,7 +42,8 @@ function EndGameScreen(props:playerDetails)
                         </div>
                         <Link to="/">
                             <div>
-                                <button className="home-button" onClick={retainPlayerColors}>Home</button>
+                                <button className="home-button"
+                                        onClick={retainPlayerColors}>Home</button>
                             </div>
                         </Link>
                     </>
@@ -56,7 +57,8 @@ function EndGameScreen(props:playerDetails)
                         </div>
                         <Link to="/">
                             <div>
-                                <button className="home-button">Home</button>
+                                <button className="home-button"
+                                        onClick={retainPlayerColors}>Home</button>
                             </div>
                         </Link>
                     </>

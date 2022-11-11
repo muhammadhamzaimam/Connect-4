@@ -7,24 +7,18 @@ export interface gameStatus{
     gameBoard: number[][]
 }
 
-/*interface gameStatusWin extends gameStatus{
-    playerNumber: number
-}*/
-
 export enum gameResult{
     win,
     draw,
     ongoing
 }
 
+
+/*Checks if there is a winner. If so, it returns a gameStatus object containing the winner. If not, it checks if the game was a draw. If none of the above, it returns
+* a gameStatus object with result of ongoing*/
+
 function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordinates:{Column:number, Row:number}, playerScores:{Player1Score:number, Player2Score:number}, setPlayerScores:React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>):gameStatus
 {
-    /*check if winner by calling checkHorizontal/checkVertical/checkDiagonal
-    * if so, return gameResult.win
-    *
-    * if not, check if its a draw (full board), then return gameResult.draw
-    *
-    * otherwise, return gameResult.ongoing*/
     let horizontalWin = checkHorizontalWin(playerNumber, playerCoordinates, gameBoard);
     let verticalWin = checkVerticalWin(playerNumber, playerCoordinates, gameBoard);
     let diagonalWin = checkDiagonalWin(playerNumber, playerCoordinates, gameBoard);
@@ -422,21 +416,5 @@ function isDraw(gameBoard:number[][])
     }
     return true;
 }
-
-/*Within the react component, after a token is placed, checkGameStatus is called
-*
-* in Board.tsx
-* const status = checkGameStatus(gameBoard, playerNumber);
-*
-* if(status.result === gameResult.win)
-*   setShowEndGameScreen(true);
-*   show winning line
-*
-* else if(status.result === gameResult.draw)
-*   update state to show draw on end game screen
-*   setIsDraw(true);
-*   setGameResult("")
-*
-* */
 
 export default checkGameStatus

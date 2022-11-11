@@ -18,40 +18,12 @@ function Board(props: playerInfo) {
 
     const [playerCoordinates, setPlayerCoordinates] = useState({Column: 0, Row: 0});
 
-    /*function getPlayerNumber(){
-        if(props.playerMoveCount % 2 === 0){
-            return 1;
-        }
-        else{
-            return 2;
-        }
-    }*/
-
-    /*should take in the coordinates of the current players token and the playerNumber*/
-
-    /*function checkPlayerWin(){
-        let playerNumber = props.currentPlayer;
-
-        let gameStatus = checkGameStatus(props.gameBoard, playerNumber, playerCoordinates);
-
-        if( gameStatus.result === gameResult.win )
-        {
-            props.setGameStatus(prevGameStatus => { return {...prevGameStatus, result: gameResult.win}});
-        }
-
-        else if(gameStatus.result === gameResult.draw)
-        {
-            props.setGameStatus(prevGameStatus => { return {...prevGameStatus, result: gameResult.draw}});
-        }
-    }
-
-    useEffect(checkPlayerWin, [props, playerCoordinates]);*/
-
     /*creates the row numbers on the left side of the board*/
     const rowNumbers = Array.from({length: numOfRows}, (_,i) => <div key={i}>{i+1}</div>);
 
     const columns = []
 
+    /*Push each column into an array to be rendered. This includes the 1st column which is basically the row letters*/
     for (let i = 0; i < numOfColumns; i++)
     {
         columns.push(<Column columnLetter={String.fromCharCode(65+i)}

@@ -28,12 +28,16 @@ function ColorPicker(props:colorDetails){
     }
 
     if(props.showColors){
-        colorArray.push(<GithubPicker onChange={handleColorSelection} colors={colors} width={colorPickerWidth}></GithubPicker>)
+        colorArray.push(<GithubPicker onChange={handleColorSelection}
+                                      colors={colors}
+                                      width={colorPickerWidth}></GithubPicker>)
     }
 
     return(
         <div className="colorContainer">
-            <button className="color-select-button" onClick={showColors} style={{backgroundColor:props.playerColor}}></button>
+            <button className="color-select-button"
+                    onClick={showColors}
+                    style={{backgroundColor:props.playerColor}}></button>
             {colorArray}
         </div>
     )

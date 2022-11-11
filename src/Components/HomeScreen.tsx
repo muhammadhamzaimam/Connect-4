@@ -15,6 +15,7 @@ interface homeScreenProps{
 
 function HomeScreen({setPlayerNames, playerNames, playerColors, setPlayerColors, setGameStatus, setPlayerScores}: homeScreenProps){
 
+    /*When the players change name, the scores must be reset*/
     function setPlayer1Name(player1Name:string){
         setPlayerNames(prevNames => ({...prevNames,Player1Name:player1Name}) )
         setPlayerScores( {Player1Score: 0, Player2Score: 0})
@@ -44,8 +45,16 @@ function HomeScreen({setPlayerNames, playerNames, playerColors, setPlayerColors,
                 <h1>CONNECT-4</h1>
             </div>
             <div className="player-container">
-                <PlayerDetails playerNumber={1} inputHandler={setPlayer1Name} PlayerName={playerNames.Player1Name} playerColor = {playerColors.Player1Color} setPlayerColor={setPlayer1Color}/>
-                <PlayerDetails playerNumber={2} inputHandler={setPlayer2Name} PlayerName={playerNames.Player2Name} playerColor = {playerColors.Player2Color} setPlayerColor={setPlayer2Color}/>
+                <PlayerDetails playerNumber={1}
+                               inputHandler={setPlayer1Name}
+                               PlayerName={playerNames.Player1Name}
+                               playerColor={playerColors.Player1Color}
+                               setPlayerColor={setPlayer1Color}/>
+                <PlayerDetails playerNumber={2}
+                               inputHandler={setPlayer2Name}
+                               PlayerName={playerNames.Player2Name}
+                               playerColor={playerColors.Player2Color}
+                               setPlayerColor={setPlayer2Color}/>
                 <div className="buttons">
                     <Link to="/game">
                         <button onClick={handleStartGame} className = "regular-button play-button">Play</button>

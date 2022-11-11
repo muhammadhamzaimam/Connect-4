@@ -15,40 +15,7 @@ interface PlayerInfo{
     setPlayerScores: React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 
-/*enum updateGameStatusKind{
-    UPDATE_PLAYER = "updatePlayer",
-    UPDATE_RESULT = "updateResult",
-    UPDATE_GAME_BOARD = "updateGameBoard"
-}
-
-interface actions{
-    type: updateGameStatusKind;
-    newCurrentPlayer: number;
-    newGameBoard: number[][];
-    newGameState: gameStatus;
-}*/
-
-
-
 function GameScreen(props: PlayerInfo){
-
-    /*function reducer(newGameStatus:gameStatus, action:actions)
-    {
-        if(action.type === updateGameStatusKind.UPDATE_PLAYER)
-        {
-            props.setCurrentPlayer(action.newCurrentPlayer);
-        }
-
-        else if(action.type === updateGameStatusKind.UPDATE_GAME_BOARD)
-        {
-            props.setGameBoard(action.newGameBoard);
-        }
-
-        return newGameStatus;
-    }*/
-
-    /*const[gameStatus, setGameStatus] = useState({result: gameResult.ongoing, playerNumber: 1, gameBoard:Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0))});*/
-    /*const[newGameStatus, dispatch] = useReducer(reducer, {result: gameResult.ongoing, playerNumber: 1, gameBoard:Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0))});*/
 
     let playerName
 

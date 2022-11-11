@@ -17,6 +17,7 @@ interface columnInfo{
     setPlayerScores:  React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 
+/*One of the main components that updates the state every time a player clicks on a column*/
 function Column(props: columnInfo){
 
     const column = [];
@@ -24,7 +25,8 @@ function Column(props: columnInfo){
 
     for(let i = 0; i < numOfRows; i++)
     {
-        column.push(<div className="Column-element" style={{backgroundColor: props.gameColumn[i]===1 ? props.playerColors.Player1Color: props.gameColumn[i] === 2 ? props.playerColors.Player2Color : ""}}></div>)
+        column.push(<div className="Column-element"
+                         style={{backgroundColor: props.gameColumn[i]===1 ? props.playerColors.Player1Color: props.gameColumn[i] === 2 ? props.playerColors.Player2Color : ""}}></div>)
     }
 
     column.push(<div className="Column-bottom">{props.columnLetter}</div>)
@@ -40,6 +42,7 @@ function Column(props: columnInfo){
                     const prevGameBoard = prevState.gameBoard;
                     prevGameBoard[props.columnNumber][i] = prevState.playerNumber
                     props.setPlayerCoordinates({Column: props.columnNumber, Row:i})
+                    /*Function that returns the winner along with game info*/
                     endGameResult = checkGameStatus(prevGameBoard, prevState.playerNumber, {Column: props.columnNumber, Row: i}, props.playerScores, props.setPlayerScores)
                     return {gameBoard: prevGameBoard, playerNumber: prevState.playerNumber === 1 ? 2 : 1, result: endGameResult.result}
                 })

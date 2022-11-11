@@ -11,29 +11,7 @@ function App() {
     const[playerNames, setPlayerNames] = useState({Player1Name: "", Player2Name: ""});
     const[playerColors, setPlayerColors] = useState({Player1Color: "#FFFFFF", Player2Color: "#FFFFFF"});
     const[playerScores, setPlayerScores] = useState({Player1Score: 0, Player2Score:0})
-
-    /*set up a 2D array for the game board
-    * pass the array to board.tsx
-    * board will pass the corresponding 1D array into column.tsx
-    * column.tsx will use the values in the 1D array to populate the column element values*/
-    /*const [gameBoard, setGameBoard] = useState(
-        Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0)));*/
-
     const[gameStatus, setGameStatus] = useState({result: gameResult.ongoing, playerNumber: 1, gameBoard:Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0))});
-
-
-    /*
-    * [
-    * [0,0,0,0,0,0],
-    * [0,0,0,0,0,0],
-    * [0,0,0,0,0,0],
-    * [0,0,0,0,0,0],
-    * [0,0,0,0,0,0],
-    * [0,0,0,0,0,0],
-    * [0,0,0,0,0,0]
-    * ]
-    *
-    * */
 
     return (
       <BrowserRouter>

@@ -8,6 +8,7 @@ function Instructions(){
 
     function handleBack()
     {
+        /*Goes back to the screen user came from; equivalent of pressing the back button*/
         goBack(-1);
     }
 

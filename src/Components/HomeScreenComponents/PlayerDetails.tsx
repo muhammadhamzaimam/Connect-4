@@ -18,8 +18,13 @@ function PlayerDetails({playerNumber, inputHandler, PlayerName, setPlayerColor, 
     return (
         <div className="playerDetailsContainer">
             <div className="playerDetails">
-                <label htmlFor="playerName" className="playerName">Player {playerNumber}: </label>
-                <input type="text" id={`player-${playerNumber}-name`} placeholder="Name" onChange={event => inputHandler(event.target.value)} value={PlayerName}/>
+                <label htmlFor="playerName"
+                       className="playerName">Player {playerNumber}: </label>
+                <input type="text"
+                       id={`player-${playerNumber}-name`}
+                       placeholder="Name"
+                       onChange={event => inputHandler(event.target.value)}
+                       value={PlayerName}/>
             </div>
             <div className="colorPicker">
                 <ColorPicker showColors={colorButtonIsActive}
