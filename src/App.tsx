@@ -5,6 +5,7 @@ import GameScreen from "./Components/GameScreen";
 import InstructionScreen from "./Components/InstructionScreen";
 import {numOfColumns, numOfRows} from "./Constants";
 import {gameResult} from "./Components/GameScreenComponents/WinningLogic";
+import "./Components/Global.css"
 
 export interface PlayerNames{
     Player1Name: string

@@ -1,9 +1,3 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-color: #b4e6ff;
-}
-
 .Column{
     display: flex;
     box-sizing: border-box;

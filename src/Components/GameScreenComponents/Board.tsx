@@ -5,7 +5,7 @@ import {numOfColumns, numOfRows} from "../../Constants";
 import {gameResult} from "./WinningLogic";
 import {PlayerColors, PlayerScores} from "../../App";
 
-interface playerInfo{
+interface PlayerInfo{
     gameBoard:number[][]
     playerColors: PlayerColors
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
@@ -15,7 +15,7 @@ interface playerInfo{
     setPlayerScores:  React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 
-function Board(props: playerInfo) {
+function Board(props: PlayerInfo) {
 
     const [playerCoordinates, setPlayerCoordinates] = useState({Column: 0, Row: 0});
 

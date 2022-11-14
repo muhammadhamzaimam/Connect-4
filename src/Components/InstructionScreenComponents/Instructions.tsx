@@ -21,9 +21,7 @@ function Instructions(){
                     4 tokens in a row either horizontally, vertically or diagonally. The first player to make a
                     row of 4 wins. Good luck, have fun!
                 </p>
-                <Link to="/">
                     <button onClick={handleBack}>Back</button>
-                </Link>
             </div>
         </>
     )
