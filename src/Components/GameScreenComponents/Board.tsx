@@ -3,14 +3,15 @@ import Column from "./Column"
 import "../GameScreen.css"
 import {numOfColumns, numOfRows} from "../../Constants";
 import {gameResult} from "./WinningLogic";
+import {PlayerColors, PlayerScores} from "../../App";
 
 interface playerInfo{
     gameBoard:number[][]
-    playerColors:{Player1Color:string, Player2Color:string}
+    playerColors: PlayerColors
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
     gameStatus: {result: gameResult, playerNumber: number, gameBoard: number[][]}
     setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
-    playerScores: {Player1Score: number, Player2Score: number}
+    playerScores: PlayerScores
     setPlayerScores:  React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 

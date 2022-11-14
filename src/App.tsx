@@ -6,6 +6,21 @@ import InstructionScreen from "./Components/InstructionScreen";
 import {numOfColumns, numOfRows} from "./Constants";
 import {gameResult} from "./Components/GameScreenComponents/WinningLogic";
 
+export interface PlayerNames{
+    Player1Name: string
+    Player2Name: string
+}
+
+export interface PlayerColors{
+    Player1Color: string
+    Player2Color: string
+}
+
+export interface PlayerScores{
+    Player1Score: number
+    Player2Score: number
+}
+
 function App() {
 
     const[playerNames, setPlayerNames] = useState({Player1Name: "", Player2Name: ""});

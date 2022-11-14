@@ -2,18 +2,19 @@ import React from "react"
 import "../GameScreen.css"
 import {numOfRows} from "../../Constants";
 import checkGameStatus, {gameResult, gameStatus} from "./WinningLogic";
+import {PlayerColors, PlayerScores} from "../../App";
 
 interface columnInfo{
     columnLetter: string
     columnNumber: number
     gameColumn: number[]
     gameBoard:number[][]
-    playerColors: {Player1Color:string, Player2Color:string}
+    playerColors: PlayerColors
     playerCoordinates: {Column:number, Row:number}
     setPlayerCoordinates: React.Dispatch<React.SetStateAction<{Column: number, Row: number}>>
     gameStatus: {result: gameResult, playerNumber: number, gameBoard: number[][]}
     setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
-    playerScores: {Player1Score: number, Player2Score: number}
+    playerScores: PlayerScores
     setPlayerScores:  React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 

@@ -2,12 +2,13 @@ import React from "react"
 import "./EndGameScreen.css"
 import {Link} from "react-router-dom";
 import {gameResult, gameStatus} from "./GameScreenComponents/WinningLogic"
+import {PlayerColors, PlayerNames, PlayerScores} from "../App";
 
 interface playerDetails{
-    playerNames: {Player1Name:string, Player2Name:string};
+    playerNames: PlayerNames;
     gameStatus: gameStatus;
-    playerScores: {Player1Score: number, Player2Score: number}
-    playerColors: {Player1Color: string, Player2Color: string}
+    playerScores: PlayerScores;
+    playerColors: PlayerColors;
 }
 
 function EndGameScreen(props:playerDetails)
@@ -33,7 +34,7 @@ function EndGameScreen(props:playerDetails)
                     <>
                         <h1 className="winning-player-name">{playerName} won!</h1>
                         <div className="end-game-scores">
-                            <p className="p1-score">{props.playerNames.Player1Name} score: {props.playerScores.Player1Score}</p>
+                            <p className="player-score">{props.playerNames.Player1Name} score: {props.playerScores.Player1Score}</p>
                             <p>{props.playerNames.Player2Name} score: {props.playerScores.Player2Score}</p>
                         </div>
                         <Link to="/">

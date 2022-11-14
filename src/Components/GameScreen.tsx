@@ -4,14 +4,15 @@ import GameHeader from "./GameScreenComponents/GameHeader";
 import GameFooter from "./GameScreenComponents/GameFooter";
 import EndGameScreen from "./EndGameScreen"
 import {gameResult} from "./GameScreenComponents/WinningLogic";
+import {PlayerColors, PlayerNames, PlayerScores} from "../App";
 
 interface PlayerInfo{
-    playerNames: {Player1Name:string, Player2Name:string}
+    playerNames: PlayerNames
     gameStatus: {result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}
     setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
-    playerColors: {Player1Color:string, Player2Color:string}
+    playerColors: PlayerColors
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
-    playerScores: {Player1Score: number, Player2Score: number}
+    playerScores: PlayerScores
     setPlayerScores: React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 

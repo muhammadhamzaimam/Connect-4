@@ -1,10 +1,11 @@
 import React from "react"
 import "../GameScreen.css"
 import { Link } from "react-router-dom"
+import {PlayerNames, PlayerScores} from "../../App";
 
 interface scoreInfo{
-    playerNames: {Player1Name:string, Player2Name:string}
-    playerScores: {Player1Score:number, Player2Score:number}
+    playerNames: PlayerNames
+    playerScores: PlayerScores
 }
 
 function GameFooter(props: scoreInfo){

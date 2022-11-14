@@ -3,11 +3,12 @@ import PlayerDetails from "./HomeScreenComponents/PlayerDetails"
 import {Link} from "react-router-dom";
 import {numOfColumns, numOfRows} from "../Constants";
 import {gameResult} from "./GameScreenComponents/WinningLogic";
+import {PlayerColors, PlayerNames} from "../App"
 
 interface homeScreenProps{
-    playerNames:{Player1Name:string, Player2Name:string}
+    playerNames: PlayerNames
     setPlayerNames: React.Dispatch<React.SetStateAction<{Player1Name: string, Player2Name: string}>>
-    playerColors: {Player1Color: string, Player2Color: string}
+    playerColors: PlayerColors
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
     setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
     setPlayerScores: React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
