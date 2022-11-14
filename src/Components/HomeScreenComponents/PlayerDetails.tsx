@@ -18,7 +18,7 @@ function PlayerDetails({playerNumber, inputHandler, PlayerName, setPlayerColor, 
     return (
         <div className="playerDetailsContainer">
             <div className="playerDetails">
-                <label htmlFor="playerName"
+                <label htmlFor={`player-${playerNumber}-name`}
                        className="playerName">Player {playerNumber}: </label>
                 <input type="text"
                        id={`player-${playerNumber}-name`}
