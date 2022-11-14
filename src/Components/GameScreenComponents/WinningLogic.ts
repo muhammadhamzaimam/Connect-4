@@ -355,20 +355,6 @@ function checkDiagonalWin(playerNumber:number, playerCoordinates:{Column:number,
         }
     }
 
-    if(rightBottom)
-    {
-        console.log("winning rightBottom");
-    }
-    if(leftTop){
-        console.log("winning leftTop")
-    }
-    if(rightTop){
-        console.log("winning rightTop")
-    }
-    if(leftBottom){
-        console.log("winning leftBottom")
-    }
-
     return (rightBottom || leftTop || rightTop || leftBottom);
 }
 
