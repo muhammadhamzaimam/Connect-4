@@ -1,24 +1,76 @@
 import React from "react"
-import "../../styles/GameScreen.css"
-import { numOfRows } from "../../Constants";
+import "../GameScreen.css"
+import {numOfRows} from "../../Constants";
+import checkGameStatus, {GameResult, GameStatus} from "./WinningLogic";
+import {PlayerColors, PlayerScores} from "../../App";
 
-interface columnInfo{
+interface ColumnInfo{
     columnLetter: string
+    columnNumber: number
+    gameColumn: number[]
+    gameBoard:number[][]
+    playerColors: PlayerColors
+    playerCoordinates: {Column:number, Row:number}
+    setPlayerCoordinates: React.Dispatch<React.SetStateAction<{Column: number, Row: number}>>
+    gameStatus: {result: GameResult, playerNumber: number, gameBoard: number[][]}
+    setGameStatus: React.Dispatch<React.SetStateAction<{result: GameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
+    playerScores: PlayerScores
+    setPlayerScores:  React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 
-function Column(props: columnInfo){
-    const columns = [];
+/*One of the main components that updates the state every time a player clicks on a column*/
+function Column(props: ColumnInfo){
+
+    const column = [];
 
     for(let i = 0; i < numOfRows; i++)
     {
-        columns.push(<div className="Column-element"></div>)
+        column.push(<div className="Column-element"
+                         style={{backgroundColor: props.gameColumn[i]===1 ? props.playerColors.Player1Color: props.gameColumn[i] === 2 ? props.playerColors.Player2Color : ""}}></div>)
     }
 
-    columns.push(<div className="Column-bottom">{props.columnLetter}</div>)
+    column.push(<div className="Column-bottom">{props.columnLetter}</div>)
+
+
+    function handleColumnClick(){
+        let endGameResult:GameStatus;
+
+        for(let i = props.gameColumn.length-1; i >= 0; i--)
+        {
+            if(props.gameColumn[i] === 0)
+            {
+                props.setPlayerCoordinates({Column: props.columnNumber, Row:i})
+                props.setGameStatus( prevState => {
+                    const prevGameBoard = prevState.gameBoard;
+                    prevGameBoard[props.columnNumber][i] = prevState.playerNumber
+                    /*Function that returns the winner along with game info*/
+                    endGameResult = checkGameStatus(prevGameBoard, prevState.playerNumber, {Column: props.columnNumber, Row: i})
+                    if(endGameResult.result === GameResult.win)
+                    {
+                        if(prevState.playerNumber === 1)
+                        {
+                            props.setPlayerScores(prevScore => {
+                                return {Player1Score: prevScore.Player1Score + 1, Player2Score: prevScore.Player2Score};
+                            })
+                        }
+
+                        else if(prevState.playerNumber === 2)
+                        {
+                            props.setPlayerScores(prevScore => {
+                                return {Player1Score: prevScore.Player1Score, Player2Score: prevScore.Player2Score + 1};
+                            })
+                        }
+                    }
+                    return {gameBoard: prevGameBoard, playerNumber: prevState.playerNumber === 1 ? 2 : 1, result: endGameResult.result, winner: endGameResult.winner}
+                })
+                break;
+            }
+        }
+    }
 
     return(
-        <div className="Column">
-            {columns}
+        <div className="Column" onClick={handleColumnClick}>
+            {column}
         </div>
     )
 }

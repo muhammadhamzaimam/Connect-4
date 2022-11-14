@@ -1,14 +1,43 @@
-import React from "react"
+import React, {useState} from "react"
 import Column from "./Column"
-import "../../styles/GameScreen.css"
-import {numOfRows} from "../../Constants";
+import "../GameScreen.css"
+import {numOfColumns, numOfRows} from "../../Constants";
+import {GameResult} from "./WinningLogic";
+import {PlayerColors, PlayerScores} from "../../App";
 
-function Board(){
-    const rowNumbers = []
+interface PlayerInfo{
+    gameBoard:number[][]
+    playerColors: PlayerColors
+    setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
+    gameStatus: {result: GameResult, playerNumber: number, gameBoard: number[][]}
+    setGameStatus: React.Dispatch<React.SetStateAction<{result: GameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
+    playerScores: PlayerScores
+    setPlayerScores:  React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
+}
 
-    for (let i = 0; i < numOfRows; i++)
+function Board(props: PlayerInfo) {
+
+    const [playerCoordinates, setPlayerCoordinates] = useState({Column: 0, Row: 0});
+
+    /*creates the row numbers on the left side of the board*/
+    const rowNumbers = Array.from({length: numOfRows}, (_,i) => <div key={i}>{i+1}</div>);
+
+    const columns = []
+
+    /*Push each column into an array to be rendered. This includes the 1st column which is basically the row letters*/
+    for (let i = 0; i < numOfColumns; i++)
     {
-        rowNumbers.push(<div>{i+1}</div>)
+        columns.push(<Column columnLetter={String.fromCharCode(65+i)}
+                             gameColumn={props.gameBoard[i]}
+                             gameBoard={props.gameBoard}
+                             columnNumber={i}
+                             playerColors={props.playerColors}
+                             playerCoordinates={playerCoordinates}
+                             setPlayerCoordinates={setPlayerCoordinates}
+                             gameStatus={props.gameStatus}
+                             setGameStatus={props.setGameStatus}
+                             playerScores={props.playerScores}
+                             setPlayerScores={props.setPlayerScores}/>)
     }
 
     return (
@@ -17,13 +46,7 @@ function Board(){
                 <div className="Column-Yaxis">
                     {rowNumbers}
                 </div>
-                <Column columnLetter="A"/>
-                <Column columnLetter="B"/>
-                <Column columnLetter="C"/>
-                <Column columnLetter="D"/>
-                <Column columnLetter="E"/>
-                <Column columnLetter="F"/>
-                <Column columnLetter="G"/>
+                {columns}
             </div>
         </div>
     )

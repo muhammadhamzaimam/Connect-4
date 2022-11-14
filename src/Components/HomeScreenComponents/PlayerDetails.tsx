@@ -1,18 +1,39 @@
-import React from "react"
+import React, {useState} from "react"
+import ColorPicker from "./ColorPicker"
+import "../HomeScreen.css";
 
-interface playerInfo{
+interface PlayerInfo{
     playerNumber: number,
     inputHandler: (playerName:string) => void,
     PlayerName:string
+    playerColor: string
+    setPlayerColor: (playerColor:string) => void
 }
 
-function PlayerDetails({playerNumber, inputHandler, PlayerName}: playerInfo) {
+function PlayerDetails({playerNumber, inputHandler, PlayerName, setPlayerColor, playerColor}: PlayerInfo) {
+
+    const[colorButtonIsActive, setColorButtonActive] = useState(false);
+    const[colorSelected, setColorSelected] = useState(false);
 
     return (
-        <div>
-            <label htmlFor="playerName">Player {playerNumber}: </label>
-            <input type="text" id="playerName" placeholder="Name" onChange={event => inputHandler(event.target.value)} value={PlayerName}/>
-            <input type="color"/>
+        <div className="playerDetailsContainer">
+            <div className="playerDetails">
+                <label htmlFor={`player-${playerNumber}-name`}
+                       className="playerName">Player {playerNumber}: </label>
+                <input type="text"
+                       id={`player-${playerNumber}-name`}
+                       placeholder="Name"
+                       onChange={event => inputHandler(event.target.value)}
+                       value={PlayerName}/>
+            </div>
+            <div className="colorPicker">
+                <ColorPicker showColors={colorButtonIsActive}
+                             setShowColors={setColorButtonActive}
+                             colorSelected={colorSelected}
+                             setColorSelected={setColorSelected}
+                             setPlayerColor={setPlayerColor}
+                             playerColor={playerColor}></ColorPicker>
+            </div>
         </div>
     )
 }

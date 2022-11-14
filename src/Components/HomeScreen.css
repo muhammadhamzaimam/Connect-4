@@ -1,0 +1,69 @@
+.title{
+    margin-bottom: 12vh;
+}
+
+.title > h1{
+    font-size: 100px;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 75vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-container > div{
+    margin-bottom: 5vh;
+}
+
+.playerDetailsContainer{
+    display: flex;
+    width: 41vw;
+    align-items: center;
+}
+
+#player-1-name, #player-2-name, .playerName{
+    font-size: 45px;
+}
+
+#player-1-name, #player-2-name{
+    background-color: #e6e6e6;
+    color: black;
+}
+
+#player-1-name{
+    margin-left: 4px;
+}
+
+.color-select-button{
+    margin: 0 0 0 10px;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+}
+
+.regular-button{
+    margin: 0;
+    padding: 10px;
+    width: 19.5vw;
+    font-size: 40px;
+}
+
+.play-button{
+    margin-right: 2vw;
+    margin-top: 2vh;
+    background-color: #32c832;
+}
+
+.instruction-button{
+    background-color: #fa2828;
+}

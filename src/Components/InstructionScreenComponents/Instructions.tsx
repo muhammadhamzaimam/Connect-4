@@ -1,10 +1,19 @@
 import React from "react"
-import "../../styles/InstructionScreen.css"
-import { Link } from "react-router-dom";
+import "../InstructionScreen.css"
+import { Link, useNavigate } from "react-router-dom";
 
 function Instructions(){
+
+    const goBack = useNavigate();
+
+    function handleBack()
+    {
+        /*Goes back to the screen user came from; equivalent of pressing the back button*/
+        goBack(-1);
+    }
+
     return(
-        <div>
+        <>
             <div className="Instructions">
                 <h1 className="Instruction-title">Instructions</h1>
                 <p>
@@ -12,11 +21,9 @@ function Instructions(){
                     4 tokens in a row either horizontally, vertically or diagonally. The first player to make a
                     row of 4 wins. Good luck, have fun!
                 </p>
-                <Link to="/">
-                    <button>Back</button>
-                </Link>
+                    <button onClick={handleBack}>Back</button>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -1,20 +1,21 @@
 import React from "react"
-import "../../styles/GameScreen.css"
+import "../GameScreen.css"
 import { Link } from "react-router-dom"
+import {PlayerNames, PlayerScores} from "../../App";
 
-interface scoreInfo{
-    player1Name: string
-    player2Name: string
+interface ScoreInfo{
+    playerNames: PlayerNames
+    playerScores: PlayerScores
 }
 
-function GameFooter(props: scoreInfo){
+function GameFooter(props: ScoreInfo){
     return(
         <div className="Game-footer">
-            <p>{props.player1Name} score: 0</p>
+            <p>{props.playerNames.Player1Name} score: {props.playerScores.Player1Score}</p>
             <Link to="/instructions">
-                <button>Instructions</button>
+                <button className = "instruction-button">Instructions</button>
             </Link>
-            <p>{props.player2Name} score: 0</p>
+            <p>{props.playerNames.Player2Name} score: {props.playerScores.Player2Score}</p>
         </div>
     )
 }

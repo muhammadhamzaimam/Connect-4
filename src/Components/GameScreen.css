@@ -1,14 +1,9 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
 .Column{
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
     width: 10vw;
-    height: 70vh;
+    height: 100%;
     align-items: center;
     justify-content: space-around;
     padding: 2px;
@@ -19,10 +14,10 @@
     box-sizing: border-box;
     flex-direction: column;
     width: 5vw;
-    height: 70vh;
+    height: 100%;
     align-items: center;
     justify-content: space-around;
-    padding: 2px;
+    padding: 15px;
 }
 
 .Column-bottom{
@@ -39,7 +34,6 @@
 
 .Game-board{
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -49,13 +43,25 @@
 .Game-header{
     display: flex;
     justify-content: space-between;
-    margin: 5vh 5vw 0 5vw;
+    align-items: end;
+    margin: 2vh 5vw 7vh 5vw;
+}
+
+.Game-header > h1, h2{
+    margin: 0;
+    padding: 0;
 }
 
 .Game-footer{
     display: flex;
     width: 70vw;
-    margin: 5vh auto;
+    margin: 3vh auto 0 auto;
+    justify-content: space-between;
     align-items: center;
     height: 5vh;
+}
+
+.Game-footer > button{
+    margin: 0;
+    padding: 0;
 }

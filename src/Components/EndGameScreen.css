@@ -1,0 +1,52 @@
+button{
+    border-radius: 5px;
+}
+
+.end-game-container{
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0);
+    align-items: center;
+    justify-content: center;
+}
+
+.end-game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.6);
+    width: 40vw;
+    height: 40vh;
+    border-radius: 20px;
+}
+
+.home-button{
+    font-size: 40px;
+    background-color: #32c832;
+}
+
+.winning-player-name{
+    color: white;
+    font-size: 50px;
+    margin: 2vh 0 2vh 0;
+    padding: 0;
+}
+
+.end-game-scores{
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin: 0 0 4vh 0;
+}
+
+.end-game-scores > p{
+    font-size: 40px;
+}
+
+.player-score{
+    margin-right: 2vw;
+}
