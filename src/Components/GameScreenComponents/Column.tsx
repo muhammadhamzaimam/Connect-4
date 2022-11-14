@@ -38,10 +38,10 @@ function Column(props: columnInfo){
         {
             if(props.gameColumn[i] === 0)
             {
+                props.setPlayerCoordinates({Column: props.columnNumber, Row:i})
                 props.setGameStatus( prevState => {
                     const prevGameBoard = prevState.gameBoard;
                     prevGameBoard[props.columnNumber][i] = prevState.playerNumber
-                    props.setPlayerCoordinates({Column: props.columnNumber, Row:i})
                     /*Function that returns the winner along with game info*/
                     endGameResult = checkGameStatus(prevGameBoard, prevState.playerNumber, {Column: props.columnNumber, Row: i})
                     if(endGameResult.result === gameResult.win)
