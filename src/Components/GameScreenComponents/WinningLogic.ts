@@ -25,15 +25,15 @@ function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordi
 
     if(horizontalWin || verticalWin || diagonalWin)
     {
-        return ({result:GameResult.win, playerNumber:playerNumber, gameBoard: gameBoard, winner: playerNumber});
+        return {result:GameResult.win, playerNumber:playerNumber, gameBoard: gameBoard, winner: playerNumber};
     }
 
-    else if(isDraw(gameBoard)){
-        return ({result:GameResult.draw, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0})
+    else if(isBoardFull(gameBoard)){
+        return {result:GameResult.draw, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0};
     }
 
     else{
-        return ({result:GameResult.ongoing, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0})
+        return {result:GameResult.ongoing, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0};
     }
 }
 
@@ -41,11 +41,6 @@ function checkHorizontalWin(playerNumber:number, playerCoordinates:{Column:numbe
 
     let rightMatches = 0;
     let leftMatches = 0;
-
-    if(playerNumber === 0)
-    {
-        return false;
-    }
 
     //Go 4 tokens to the right...
     for(let i = 0; i < 4; i++)
@@ -87,11 +82,6 @@ function checkVerticalWin(playerNumber:number, playerCoordinates:{Column:number,
     let topMatches = 0;
     let bottomMatches = 0;
 
-    if(playerNumber === 0)
-    {
-        return false;
-    }
-
     //Go 4 tokens to the bottom...
     for(let i = 0; i < 4; i++)
     {
@@ -129,11 +119,6 @@ function checkVerticalWin(playerNumber:number, playerCoordinates:{Column:number,
 }
 
 function checkDiagonalWin(playerNumber:number, playerCoordinates:{Column:number, Row:number}, gameBoard:number[][]){
-
-    if(playerNumber === 0)
-    {
-        return false;
-    }
 
     /*could be diagonal rightBottom, rightTop, leftBottom, leftTop*/
     let rightBottom = true;
@@ -332,7 +317,7 @@ function checkDiagonalWin(playerNumber:number, playerCoordinates:{Column:number,
     return (rightBottom || leftTop || rightTop || leftBottom);
 }
 
-function isDraw(gameBoard:number[][])
+function isBoardFull(gameBoard:number[][])
 {
     for(let i = 0; i < numOfColumns; i++)
     {
