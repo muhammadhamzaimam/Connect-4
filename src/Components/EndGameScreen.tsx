@@ -37,7 +37,7 @@ function EndGameScreen(props:playerDetails)
             <div className="end-game">
                 {props.gameStatus.result === gameResult.win && (
                     <>
-                        <h1 className="winning-line">{playerName} won!</h1>
+                        <h1 className="winning-player-name">{playerName} won!</h1>
                         <div className="end-game-scores">
                             <p className="p1-score">{props.playerNames.Player1Name} score: {props.playerScores.Player1Score}</p>
                             <p>{props.playerNames.Player2Name} score: {props.playerScores.Player2Score}</p>
@@ -52,7 +52,7 @@ function EndGameScreen(props:playerDetails)
                     )}
                 {props.gameStatus.result === gameResult.draw && (
                     <>
-                        <h1 className="winning-line">It's a draw!</h1>
+                        <h1 className="winning-player-name">It's a draw!</h1>
                         <div className="end-game-scores">
                             <p className="p1-score">{props.playerNames.Player1Name} score: {props.playerScores.Player1Score}</p>
                             <p>{props.playerNames.Player2Name} score: {props.playerScores.Player2Score}</p>
