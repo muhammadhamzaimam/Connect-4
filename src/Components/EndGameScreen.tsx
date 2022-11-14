@@ -8,7 +8,6 @@ interface playerDetails{
     gameStatus: gameStatus;
     playerScores: {Player1Score: number, Player2Score: number}
     playerColors: {Player1Color: string, Player2Color: string}
-    setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
 }
 
 function EndGameScreen(props:playerDetails)
@@ -27,11 +26,6 @@ function EndGameScreen(props:playerDetails)
         playerName = "";
     }
 
-    function retainPlayerColors()
-    {
-        props.setPlayerColors(props.playerColors);
-    }
-
     return (
         <div className="end-game-container">
             <div className="end-game">
@@ -44,8 +38,7 @@ function EndGameScreen(props:playerDetails)
                         </div>
                         <Link to="/">
                             <div>
-                                <button className="home-button"
-                                        onClick={retainPlayerColors}>Home</button>
+                                <button className="home-button">Home</button>
                             </div>
                         </Link>
                     </>
@@ -59,8 +52,7 @@ function EndGameScreen(props:playerDetails)
                         </div>
                         <Link to="/">
                             <div>
-                                <button className="home-button"
-                                        onClick={retainPlayerColors}>Home</button>
+                                <button className="home-button">Home</button>
                             </div>
                         </Link>
                     </>
