@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import ColorPicker from "./ColorPicker"
 import "../HomeScreen.css";
 
-interface playerInfo{
+interface PlayerInfo{
     playerNumber: number,
     inputHandler: (playerName:string) => void,
     PlayerName:string
@@ -10,7 +10,7 @@ interface playerInfo{
     setPlayerColor: (playerColor:string) => void
 }
 
-function PlayerDetails({playerNumber, inputHandler, PlayerName, setPlayerColor, playerColor}: playerInfo) {
+function PlayerDetails({playerNumber, inputHandler, PlayerName, setPlayerColor, playerColor}: PlayerInfo) {
 
     const[colorButtonIsActive, setColorButtonActive] = useState(false);
     const[colorSelected, setColorSelected] = useState(false);

@@ -2,19 +2,19 @@ import React from "react"
 import PlayerDetails from "./HomeScreenComponents/PlayerDetails"
 import {Link} from "react-router-dom";
 import {numOfColumns, numOfRows} from "../Constants";
-import {gameResult} from "./GameScreenComponents/WinningLogic";
+import {GameResult} from "./GameScreenComponents/WinningLogic";
 import {PlayerColors, PlayerNames} from "../App"
 
-interface homeScreenProps{
+interface HomeScreenProps{
     playerNames: PlayerNames
     setPlayerNames: React.Dispatch<React.SetStateAction<{Player1Name: string, Player2Name: string}>>
     playerColors: PlayerColors
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
-    setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
+    setGameStatus: React.Dispatch<React.SetStateAction<{result: GameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
     setPlayerScores: React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 
-function HomeScreen({setPlayerNames, playerNames, playerColors, setPlayerColors, setGameStatus, setPlayerScores}: homeScreenProps){
+function HomeScreen({setPlayerNames, playerNames, playerColors, setPlayerColors, setGameStatus, setPlayerScores}: HomeScreenProps){
 
     /*When the players change name, the scores must be reset*/
     function setPlayer1Name(player1Name:string){
@@ -37,7 +37,7 @@ function HomeScreen({setPlayerNames, playerNames, playerColors, setPlayerColors,
 
     function handleStartGame()
     {
-        setGameStatus( prevState => {return {...prevState, gameBoard: Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0)), result: gameResult.ongoing, playerNumber: 1}});
+        setGameStatus( prevState => {return {...prevState, gameBoard: Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0)), result: GameResult.ongoing, playerNumber: 1}});
     }
 
     return (

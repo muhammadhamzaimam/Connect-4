@@ -1,17 +1,17 @@
 import React from "react"
 import "./EndGameScreen.css"
 import {Link} from "react-router-dom";
-import {gameResult, gameStatus} from "./GameScreenComponents/WinningLogic"
+import {GameResult, GameStatus} from "./GameScreenComponents/WinningLogic"
 import {PlayerColors, PlayerNames, PlayerScores} from "../App";
 
-interface playerDetails{
+interface PlayerDetails{
     playerNames: PlayerNames;
-    gameStatus: gameStatus;
+    gameStatus: GameStatus;
     playerScores: PlayerScores;
     playerColors: PlayerColors;
 }
 
-function EndGameScreen(props:playerDetails)
+function EndGameScreen(props:PlayerDetails)
 {
     let playerName
 
@@ -30,7 +30,7 @@ function EndGameScreen(props:playerDetails)
     return (
         <div className="end-game-container">
             <div className="end-game">
-                {props.gameStatus.result === gameResult.win && (
+                {props.gameStatus.result === GameResult.win && (
                     <>
                         <h1 className="winning-player-name">{playerName} won!</h1>
                         <div className="end-game-scores">
@@ -44,7 +44,7 @@ function EndGameScreen(props:playerDetails)
                         </Link>
                     </>
                     )}
-                {props.gameStatus.result === gameResult.draw && (
+                {props.gameStatus.result === GameResult.draw && (
                     <>
                         <h1 className="winning-player-name">It's a draw!</h1>
                         <div className="end-game-scores">

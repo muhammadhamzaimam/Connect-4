@@ -4,7 +4,7 @@ import HomeScreen from "./Components/HomeScreen";
 import GameScreen from "./Components/GameScreen";
 import InstructionScreen from "./Components/InstructionScreen";
 import {numOfColumns, numOfRows} from "./Constants";
-import {gameResult} from "./Components/GameScreenComponents/WinningLogic";
+import {GameResult} from "./Components/GameScreenComponents/WinningLogic";
 import "./Components/Global.css"
 
 export interface PlayerNames{
@@ -27,7 +27,7 @@ function App() {
     const[playerNames, setPlayerNames] = useState({Player1Name: "", Player2Name: ""});
     const[playerColors, setPlayerColors] = useState({Player1Color: "#FF0000", Player2Color: "#FFFF00"});
     const[playerScores, setPlayerScores] = useState({Player1Score: 0, Player2Score:0})
-    const[gameStatus, setGameStatus] = useState({result: gameResult.ongoing, playerNumber: 1, gameBoard:Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0)), winner: 0});
+    const[gameStatus, setGameStatus] = useState({result: GameResult.ongoing, playerNumber: 1, gameBoard:Array.from({length: numOfColumns},()=> Array.from({length: numOfRows}, () => 0)), winner: 0});
 
     return (
       <BrowserRouter>

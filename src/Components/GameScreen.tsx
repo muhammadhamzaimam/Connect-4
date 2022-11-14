@@ -3,13 +3,13 @@ import Board from "./GameScreenComponents/Board"
 import GameHeader from "./GameScreenComponents/GameHeader";
 import GameFooter from "./GameScreenComponents/GameFooter";
 import EndGameScreen from "./EndGameScreen"
-import {gameResult} from "./GameScreenComponents/WinningLogic";
+import {GameResult} from "./GameScreenComponents/WinningLogic";
 import {PlayerColors, PlayerNames, PlayerScores} from "../App";
 
 interface PlayerInfo{
     playerNames: PlayerNames
-    gameStatus: {result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}
-    setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
+    gameStatus: {result: GameResult, playerNumber: number, gameBoard: number[][], winner: number}
+    setGameStatus: React.Dispatch<React.SetStateAction<{result: GameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
     playerColors: PlayerColors
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
     playerScores: PlayerScores
@@ -30,7 +30,7 @@ function GameScreen(props: PlayerInfo){
 
         return(
             <div>
-                {(props.gameStatus.result !== gameResult.ongoing) && <EndGameScreen playerNames={props.playerNames}
+                {(props.gameStatus.result !== GameResult.ongoing) && <EndGameScreen playerNames={props.playerNames}
                                                                                     gameStatus={props.gameStatus}
                                                                                     playerScores={props.playerScores}
                                                                                     playerColors={props.playerColors}/>}

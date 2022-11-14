@@ -3,7 +3,7 @@ import "../HomeScreen.css"
 import { GithubPicker } from "react-color";
 import {colors} from "../../Constants"
 
-interface colorDetails{
+interface ColorDetails{
     showColors: boolean
     setShowColors: React.Dispatch<React.SetStateAction<boolean>>
     colorSelected: boolean
@@ -12,7 +12,7 @@ interface colorDetails{
     setPlayerColor: (playerColor:string) => void
 }
 
-function ColorPicker(props:colorDetails){
+function ColorPicker(props:ColorDetails){
     let colorArray = []
 
     let colorPickerWidth = "125px";

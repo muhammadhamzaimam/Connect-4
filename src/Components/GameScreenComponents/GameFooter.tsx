@@ -3,12 +3,12 @@ import "../GameScreen.css"
 import { Link } from "react-router-dom"
 import {PlayerNames, PlayerScores} from "../../App";
 
-interface scoreInfo{
+interface ScoreInfo{
     playerNames: PlayerNames
     playerScores: PlayerScores
 }
 
-function GameFooter(props: scoreInfo){
+function GameFooter(props: ScoreInfo){
     return(
         <div className="Game-footer">
             <p>{props.playerNames.Player1Name} score: {props.playerScores.Player1Score}</p>

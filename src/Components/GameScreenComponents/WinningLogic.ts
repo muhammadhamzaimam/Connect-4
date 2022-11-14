@@ -1,13 +1,13 @@
 import {numOfColumns, numOfRows} from "../../Constants";
 
-export interface gameStatus{
-    result: gameResult /*win, lose, draw*/
+export interface GameStatus {
+    result: GameResult /*win, lose, draw*/
     playerNumber: number
     gameBoard: number[][]
     winner: number
 }
 
-export enum gameResult{
+export enum GameResult{
     win,
     draw,
     ongoing
@@ -17,7 +17,7 @@ export enum gameResult{
 /*Checks if there is a winner. If so, it returns a gameStatus object containing the winner. If not, it checks if the game was a draw. If none of the above, it returns
 * a gameStatus object with result of ongoing*/
 
-function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordinates:{Column:number, Row:number}):gameStatus
+function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordinates:{Column:number, Row:number}):GameStatus
 {
     let horizontalWin = checkHorizontalWin(playerNumber, playerCoordinates, gameBoard);
     let verticalWin = checkVerticalWin(playerNumber, playerCoordinates, gameBoard);
@@ -25,15 +25,15 @@ function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordi
 
     if(horizontalWin || verticalWin || diagonalWin)
     {
-        return ({result:gameResult.win, playerNumber:playerNumber, gameBoard: gameBoard, winner: playerNumber});
+        return ({result:GameResult.win, playerNumber:playerNumber, gameBoard: gameBoard, winner: playerNumber});
     }
 
     else if(isDraw(gameBoard)){
-        return ({result:gameResult.draw, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0})
+        return ({result:GameResult.draw, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0})
     }
 
     else{
-        return ({result:gameResult.ongoing, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0})
+        return ({result:GameResult.ongoing, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0})
     }
 }
 

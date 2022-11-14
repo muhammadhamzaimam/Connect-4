@@ -1,10 +1,10 @@
 import React from "react"
 import "../GameScreen.css"
 import {numOfRows} from "../../Constants";
-import checkGameStatus, {gameResult, gameStatus} from "./WinningLogic";
+import checkGameStatus, {GameResult, GameStatus} from "./WinningLogic";
 import {PlayerColors, PlayerScores} from "../../App";
 
-interface columnInfo{
+interface ColumnInfo{
     columnLetter: string
     columnNumber: number
     gameColumn: number[]
@@ -12,14 +12,14 @@ interface columnInfo{
     playerColors: PlayerColors
     playerCoordinates: {Column:number, Row:number}
     setPlayerCoordinates: React.Dispatch<React.SetStateAction<{Column: number, Row: number}>>
-    gameStatus: {result: gameResult, playerNumber: number, gameBoard: number[][]}
-    setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
+    gameStatus: {result: GameResult, playerNumber: number, gameBoard: number[][]}
+    setGameStatus: React.Dispatch<React.SetStateAction<{result: GameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
     playerScores: PlayerScores
     setPlayerScores:  React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
 
 /*One of the main components that updates the state every time a player clicks on a column*/
-function Column(props: columnInfo){
+function Column(props: ColumnInfo){
 
     const column = [];
 
@@ -33,7 +33,7 @@ function Column(props: columnInfo){
 
 
     function handleColumnClick(){
-        let endGameResult:gameStatus;
+        let endGameResult:GameStatus;
 
         for(let i = props.gameColumn.length-1; i >= 0; i--)
         {
@@ -45,7 +45,7 @@ function Column(props: columnInfo){
                     prevGameBoard[props.columnNumber][i] = prevState.playerNumber
                     /*Function that returns the winner along with game info*/
                     endGameResult = checkGameStatus(prevGameBoard, prevState.playerNumber, {Column: props.columnNumber, Row: i})
-                    if(endGameResult.result === gameResult.win)
+                    if(endGameResult.result === GameResult.win)
                     {
                         if(prevState.playerNumber === 1)
                         {
