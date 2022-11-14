@@ -63,14 +63,9 @@ function checkHorizontalWin(playerNumber:number, playerCoordinates:{Column:numbe
         }
     }
 
-    //Go 4 tokens to the left...
-    for(let i = 0; i < 4; i++)
+    //Go 4 tokens to the left...but skip the current token position as it's already been accounted for
+    for(let i = 1; i < 4; i++)
     {
-        if(i === 0)
-        {
-            continue;
-        }
-
         let trueColumn = playerCoordinates.Column - i;
 
         if(trueColumn < 0)
@@ -113,15 +108,10 @@ function checkVerticalWin(playerNumber:number, playerCoordinates:{Column:number,
         }
     }
 
-    //Go 4 tokens to the top...
-    for(let i = 0; i < 4; i++)
+    //Go 4 tokens to the top...but skip current token position as its already been accounted for
+    for(let i = 1; i < 4; i++)
     {
         let trueRow = playerCoordinates.Row - i;
-
-        if(i === 0)
-        {
-            continue;
-        }
 
         if(trueRow < 0)
         {
