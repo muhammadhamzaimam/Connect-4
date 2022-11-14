@@ -30,7 +30,7 @@ function ColorPicker(props:ColorDetails){
     if(props.showColors){
         colorArray.push(<GithubPicker onChange={handleColorSelection}
                                       colors={colors}
-                                      width={colorPickerWidth}></GithubPicker>)
+                                      width={colorPickerWidth}/>)
     }
 
     return(
