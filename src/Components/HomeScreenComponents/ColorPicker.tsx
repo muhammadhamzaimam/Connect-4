@@ -15,8 +15,6 @@ interface ColorDetails{
 function ColorPicker(props:ColorDetails){
     let colorArray = []
 
-    let colorPickerWidth = "125px";
-
     function showColors(){
         props.setShowColors(prevVal => !prevVal);
     }
@@ -30,7 +28,7 @@ function ColorPicker(props:ColorDetails){
     if(props.showColors){
         colorArray.push(<GithubPicker onChange={handleColorSelection}
                                       colors={colors}
-                                      width={colorPickerWidth}/>)
+                                      width="125px"/>)
     }
 
     return(
