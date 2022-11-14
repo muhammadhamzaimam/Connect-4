@@ -21,7 +21,6 @@ interface columnInfo{
 function Column(props: columnInfo){
 
     const column = [];
-    let endGameResult:gameStatus;
 
     for(let i = 0; i < numOfRows; i++)
     {
@@ -33,6 +32,7 @@ function Column(props: columnInfo){
 
 
     function handleColumnClick(){
+        let endGameResult:gameStatus;
 
         for(let i = props.gameColumn.length-1; i >= 0; i--)
         {
