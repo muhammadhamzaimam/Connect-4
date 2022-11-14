@@ -43,7 +43,23 @@ function Column(props: columnInfo){
                     prevGameBoard[props.columnNumber][i] = prevState.playerNumber
                     props.setPlayerCoordinates({Column: props.columnNumber, Row:i})
                     /*Function that returns the winner along with game info*/
-                    endGameResult = checkGameStatus(prevGameBoard, prevState.playerNumber, {Column: props.columnNumber, Row: i}, props.playerScores, props.setPlayerScores)
+                    endGameResult = checkGameStatus(prevGameBoard, prevState.playerNumber, {Column: props.columnNumber, Row: i})
+                    if(endGameResult.result === gameResult.win)
+                    {
+                        if(prevState.playerNumber === 1)
+                        {
+                            props.setPlayerScores(prevScore => {
+                                return {Player1Score: prevScore.Player1Score + 1, Player2Score: prevScore.Player2Score};
+                            })
+                        }
+
+                        else if(prevState.playerNumber === 2)
+                        {
+                            props.setPlayerScores(prevScore => {
+                                return {Player1Score: prevScore.Player1Score, Player2Score: prevScore.Player2Score + 1};
+                            })
+                        }
+                    }
                     return {gameBoard: prevGameBoard, playerNumber: prevState.playerNumber === 1 ? 2 : 1, result: endGameResult.result, winner: endGameResult.winner}
                 })
                 break;

@@ -1,5 +1,4 @@
 import {numOfColumns, numOfRows} from "../../Constants";
-import React from "react";
 
 export interface gameStatus{
     result: gameResult /*win, lose, draw*/
@@ -18,7 +17,7 @@ export enum gameResult{
 /*Checks if there is a winner. If so, it returns a gameStatus object containing the winner. If not, it checks if the game was a draw. If none of the above, it returns
 * a gameStatus object with result of ongoing*/
 
-function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordinates:{Column:number, Row:number}, playerScores:{Player1Score:number, Player2Score:number}, setPlayerScores:React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>):gameStatus
+function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordinates:{Column:number, Row:number}):gameStatus
 {
     let horizontalWin = checkHorizontalWin(playerNumber, playerCoordinates, gameBoard);
     let verticalWin = checkVerticalWin(playerNumber, playerCoordinates, gameBoard);
@@ -26,20 +25,6 @@ function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordi
 
     if(horizontalWin || verticalWin || diagonalWin)
     {
-        if(playerNumber === 1)
-        {
-            setPlayerScores(prevScore => {
-                return {Player1Score: prevScore.Player1Score+1, Player2Score: prevScore.Player2Score};
-            })
-        }
-
-        else if(playerNumber === 2)
-        {
-            setPlayerScores(prevScore => {
-                return {Player1Score: prevScore.Player1Score, Player2Score: prevScore.Player2Score+1};
-            })
-        }
-
         return ({result:gameResult.win, playerNumber:playerNumber, gameBoard: gameBoard, winner: playerNumber});
     }
 
@@ -50,7 +35,6 @@ function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordi
     else{
         return ({result:gameResult.ongoing, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0})
     }
-
 }
 
 function checkHorizontalWin(playerNumber:number, playerCoordinates:{Column:number, Row:number}, gameBoard:number[][]){
