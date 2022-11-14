@@ -9,7 +9,7 @@ interface playerInfo{
     playerColors:{Player1Color:string, Player2Color:string}
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
     gameStatus: {result: gameResult, playerNumber: number, gameBoard: number[][]}
-    setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][]}>>
+    setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
     playerScores: {Player1Score: number, Player2Score: number}
     setPlayerScores:  React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }

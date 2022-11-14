@@ -12,7 +12,7 @@ interface columnInfo{
     playerCoordinates: {Column:number, Row:number}
     setPlayerCoordinates: React.Dispatch<React.SetStateAction<{Column: number, Row: number}>>
     gameStatus: {result: gameResult, playerNumber: number, gameBoard: number[][]}
-    setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][]}>>
+    setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
     playerScores: {Player1Score: number, Player2Score: number}
     setPlayerScores:  React.Dispatch<React.SetStateAction<{Player1Score: number, Player2Score: number}>>
 }
@@ -44,7 +44,7 @@ function Column(props: columnInfo){
                     props.setPlayerCoordinates({Column: props.columnNumber, Row:i})
                     /*Function that returns the winner along with game info*/
                     endGameResult = checkGameStatus(prevGameBoard, prevState.playerNumber, {Column: props.columnNumber, Row: i}, props.playerScores, props.setPlayerScores)
-                    return {gameBoard: prevGameBoard, playerNumber: prevState.playerNumber === 1 ? 2 : 1, result: endGameResult.result}
+                    return {gameBoard: prevGameBoard, playerNumber: prevState.playerNumber === 1 ? 2 : 1, result: endGameResult.result, winner: endGameResult.winner}
                 })
                 break;
             }

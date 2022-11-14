@@ -15,14 +15,16 @@ function EndGameScreen(props:playerDetails)
 {
     let playerName
 
-    /*The Column component will always return the next player, so it will be the previous player that wins...*/
-    if(props.gameStatus.playerNumber === 1)
+    if(props.gameStatus.winner === 1)
     {
-        playerName = props.playerNames.Player2Name
+        playerName = props.playerNames.Player1Name
     }
-    else
+    else if(props.gameStatus.winner === 2)
     {
-        playerName =  props.playerNames.Player1Name
+        playerName =  props.playerNames.Player2Name
+    }
+    else{
+        playerName = "";
     }
 
     function retainPlayerColors()

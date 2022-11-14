@@ -5,6 +5,7 @@ export interface gameStatus{
     result: gameResult /*win, lose, draw*/
     playerNumber: number
     gameBoard: number[][]
+    winner: number
 }
 
 export enum gameResult{
@@ -39,15 +40,15 @@ function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordi
             })
         }
 
-        return ({result:gameResult.win, playerNumber:playerNumber, gameBoard: gameBoard});
+        return ({result:gameResult.win, playerNumber:playerNumber, gameBoard: gameBoard, winner: playerNumber});
     }
 
     else if(isDraw(gameBoard)){
-        return ({result:gameResult.draw, playerNumber: playerNumber, gameBoard: gameBoard})
+        return ({result:gameResult.draw, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0})
     }
 
     else{
-        return ({result:gameResult.ongoing, playerNumber: playerNumber, gameBoard: gameBoard})
+        return ({result:gameResult.ongoing, playerNumber: playerNumber, gameBoard: gameBoard, winner: 0})
     }
 
 }

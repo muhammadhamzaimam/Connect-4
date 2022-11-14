@@ -7,8 +7,8 @@ import {gameResult} from "./GameScreenComponents/WinningLogic";
 
 interface PlayerInfo{
     playerNames: {Player1Name:string, Player2Name:string}
-    gameStatus: {result: gameResult, playerNumber: number, gameBoard: number[][]}
-    setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][]}>>
+    gameStatus: {result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}
+    setGameStatus: React.Dispatch<React.SetStateAction<{result: gameResult, playerNumber: number, gameBoard: number[][], winner: number}>>
     playerColors: {Player1Color:string, Player2Color:string}
     setPlayerColors: React.Dispatch<React.SetStateAction<{Player1Color: string, Player2Color: string}>>
     playerScores: {Player1Score: number, Player2Score: number}
