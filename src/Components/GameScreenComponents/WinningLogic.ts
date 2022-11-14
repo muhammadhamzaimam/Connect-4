@@ -54,134 +54,103 @@ function checkGameStatus(gameBoard:number[][], playerNumber:number, playerCoordi
 
 function checkHorizontalWin(playerNumber:number, playerCoordinates:{Column:number, Row:number}, gameBoard:number[][]){
 
+    let rightMatches = 0;
+    let leftMatches = 0;
+
     if(playerNumber === 0)
     {
         return false;
     }
 
-    /*check if the same player token exists 3 steps to the right and left*/
-    let rightMatches = true;
-    let leftMatches = true;
-
-    /*Check all token to the right match the token placed...*/
+    //Go 4 tokens to the right...
     for(let i = 0; i < 4; i++)
     {
-        let trueColumn = playerCoordinates.Column+i
+        let trueColumn = playerCoordinates.Column + i;
 
-        if(trueColumn > numOfColumns-1)
+        if (trueColumn > numOfColumns - 1)
         {
             break;
         }
 
-        if(trueColumn === numOfColumns-1)
+        if(gameBoard[trueColumn][playerCoordinates.Row] === playerNumber)
         {
-            for(let i = 0; i < 4; i++)
-            {
-                if(gameBoard[trueColumn-i][playerCoordinates.Row] !== playerNumber)
-                {
-                    rightMatches = false;
-                }
-            }
+            rightMatches++;
         }
-
-        if(gameBoard[trueColumn][playerCoordinates.Row] !== playerNumber){
-            rightMatches = false;
-        }
-
     }
 
-    /*Check all tokens to the left match the token placed...*/
+    //Go 4 tokens to the left...
     for(let i = 0; i < 4; i++)
     {
-        let trueColumn = playerCoordinates.Column-i
+        if(i === 0)
+        {
+            continue;
+        }
+
+        let trueColumn = playerCoordinates.Column - i;
 
         if(trueColumn < 0)
         {
             break;
         }
 
-        if(trueColumn === 0)
+        if(gameBoard[trueColumn][playerCoordinates.Row] === playerNumber)
         {
-            for(let i = 0; i < 4; i++)
-            {
-                if(gameBoard[trueColumn+i][playerCoordinates.Row] !== playerNumber)
-                {
-                    leftMatches = false;
-                }
-            }
-        }
-
-        if(gameBoard[trueColumn][playerCoordinates.Row] !== playerNumber){
-            leftMatches = false;
+            leftMatches++;
         }
     }
 
-    return (rightMatches || leftMatches);
+    return (leftMatches + rightMatches >= 4);
 }
 
 function checkVerticalWin(playerNumber:number, playerCoordinates:{Column:number, Row:number}, gameBoard:number[][]){
+
+    let topMatches = 0;
+    let bottomMatches = 0;
 
     if(playerNumber === 0)
     {
         return false;
     }
 
-    let topMatches = true;
-    let bottomMatches = true;
-
-    /*Check all tokens at the bottom match the token placed...*/
+    //Go 4 tokens to the bottom...
     for(let i = 0; i < 4; i++)
     {
-        let trueRow = playerCoordinates.Row+i
+        let trueRow = playerCoordinates.Row + i;
 
-        if(trueRow > numOfRows-1)
+        if(trueRow > numOfRows - 1)
         {
             break;
         }
 
-        if(trueRow === numOfRows-1)
+        if(gameBoard[playerCoordinates.Column][trueRow] === playerNumber)
         {
-            for(let i = 0; i < 4; i++)
-            {
-                if(gameBoard[playerCoordinates.Column][trueRow-i] !== playerNumber)
-                {
-                    bottomMatches = false;
-                }
-            }
-        }
-
-        if(gameBoard[playerCoordinates.Column][trueRow] !== playerNumber){
-            bottomMatches = false;
+            bottomMatches++;
         }
     }
 
-    /*Check all token at the top match the token placed...*/
+    //Go 4 tokens to the top...
     for(let i = 0; i < 4; i++)
     {
-        let trueRow = playerCoordinates.Row-i
+        let trueRow = playerCoordinates.Row - i;
+
+        if(i === 0)
+        {
+            continue;
+        }
 
         if(trueRow < 0)
         {
             break;
         }
 
-        if(trueRow === 0)
+        if(gameBoard[playerCoordinates.Column][trueRow] === playerNumber)
         {
-            for(let i = 0; i < 4; i++)
-            {
-                if(gameBoard[playerCoordinates.Column][trueRow+i] !== playerNumber)
-                {
-                    topMatches = false;
-                }
-            }
-        }
-
-        if(gameBoard[playerCoordinates.Column][trueRow] !== playerNumber){
-            topMatches = false;
+            topMatches++;
         }
     }
 
-    return(topMatches || bottomMatches);
+    return(topMatches + bottomMatches >= 4);
+
 }
 
 function checkDiagonalWin(playerNumber:number, playerCoordinates:{Column:number, Row:number}, gameBoard:number[][]){
